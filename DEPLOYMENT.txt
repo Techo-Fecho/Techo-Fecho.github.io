@@ -1,6 +1,4 @@
-Haeman Tech GitHub Pages edition
-Publish from main branch, root directory.
-Static assets are in the repository root.
-404.html supports client-side routes on direct navigation.
-The contact form opens an email draft; send it from your mail app.
-contact-submit.php and .htaccess are retained from the Hostinger archive and are not executed by GitHub Pages.
+Haeman Tech GitHub Pages edition, updated from final-logo ZIP.
+Publish main branch / root. Static assets are in the repository root.
+Contact form opens an email draft. WebGL is optional.
+404.html supports client-side routes. Hostinger PHP and htaccess files are retained but not executed by Pages.

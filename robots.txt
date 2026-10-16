@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_seo/
+
+Sitemap: https://haemantech.com/sitemap.xml

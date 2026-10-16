@@ -32,6 +32,7 @@ bundle=bundle.replace('(0,I.jsx)(mm,{})','(0,I.jsx)(mm,{}),(0,I.jsx)(SEOHead,{})
 bundle=bundle.replace('(0,I.jsx)(qo,{path:`/careers`,element:(0,I.jsx)(PF,{})})','(0,I.jsx)(qo,{path:`/careers`,element:(0,I.jsx)(PF,{})}),(0,I.jsx)(qo,{path:`/careers/:slug`,element:(0,I.jsx)(SEOCareer,{})})');
 // The existing FAQ label has no FAQ content. Route it to the inquiry destination.
 bundle=bundle.replace('{label:`FAQs`,path:`/about`}','{label:`FAQs`,path:`/contact`}');
+bundle=require('./team.cjs')(bundle);
 fs.writeFileSync('app-v2.js',bundle);
 const runtime=fs.readFileSync('_seo/runtime.js','utf8').replace('/* ROUTES */',JSON.stringify(pages));
 fs.writeFileSync('seo.js',runtime);

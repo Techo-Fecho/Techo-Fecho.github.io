@@ -1,0 +1,72 @@
+[
+  {
+    "category": "Leadership & Management",
+    "members": [
+      {
+        "name": "Muneeb Irfan",
+        "role": "Founder",
+        "description": "Leads Haeman Tech's strategic direction, business priorities, and long-term development as a specialist low-level software engineering company."
+      },
+      {
+        "name": "Bedřich Said",
+        "role": "Chief Executive Officer (CEO)",
+        "description": "Oversees company operations, engineering delivery, and business priorities, ensuring coordination between technical teams and client requirements."
+      },
+      {
+        "name": "Nimra",
+        "role": "Business Development Officer & Team Coordinator",
+        "description": "Manages business development activities, supports prospective client engagement, and coordinates internal communication and project follow-ups."
+      },
+      {
+        "name": "Hoor Qazi",
+        "role": "Team Supervisor",
+        "description": "Supervises day-to-day team activities, monitors assigned responsibilities, and supports internal coordination and progress reporting."
+      }
+    ]
+  },
+  {
+    "category": "Engineering Leadership",
+    "members": [
+      {
+        "name": "Waqar Ahmad",
+        "role": "Team Lead, Product Manager & Senior Windows Kernel Developer",
+        "description": "Leads engineering coordination and product planning, manages technical milestones, and works on Windows kernel architecture, driver development, and debugging."
+      },
+      {
+        "name": "Ahsan Iqbal",
+        "role": "Senior Embedded & Firmware Engineer",
+        "description": "Works on embedded firmware architecture, microcontroller development, hardware integration, and debugging across embedded platforms."
+      },
+      {
+        "name": "Fatima Ahsan",
+        "role": "Senior Windows Application Developer",
+        "description": "Focuses on Windows application architecture, desktop software development, system integration, and interfaces for technical workflows."
+      }
+    ]
+  },
+  {
+    "category": "Engineering Team",
+    "members": [
+      {
+        "name": "Muniba",
+        "role": "Windows Kernel Developer",
+        "description": "Develops Windows kernel drivers and system-level components, including driver debugging and integration with operating system interfaces."
+      },
+      {
+        "name": "Zubaida Mehmood",
+        "role": "Windows Application Developer",
+        "description": "Develops Windows applications and supporting components, focusing on application functionality, debugging, and system integration."
+      },
+      {
+        "name": "Maaz Ahmad",
+        "role": "Kernel & Hardware Engineer",
+        "description": "Works on kernel-level software, hardware interfaces, device communication, and debugging involving operating systems and physical devices."
+      },
+      {
+        "name": "Muzammil Ahmad",
+        "role": "Windows Application Developer",
+        "description": "Develops Windows desktop applications and supporting software components, focusing on functionality, debugging, and integration with system-level services."
+      }
+    ]
+  }
+]

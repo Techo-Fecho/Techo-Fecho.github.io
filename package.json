@@ -1,0 +1,9 @@
+{
+  "name": "haeman-tech-static-pages",
+  "private": true,
+  "scripts": {
+    "build": "node _seo/prepare.cjs && node _seo/build.cjs",
+    "test": "node _seo/validate.cjs"
+  },
+  "devDependencies": { "playwright": "1.51.1", "jsdom": "26.1.0" }
+}

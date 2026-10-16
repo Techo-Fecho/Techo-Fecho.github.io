@@ -2,6 +2,7 @@ const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require(
 const {JSDOM}=require('jsdom');
 const routes=require('./routes.json');
 const render=require('./render.cjs');
+const {teamSection,checkTeam}=require('./team-test.cjs');
 const file=p=>p==='/'?'index.html':p.slice(1)+'/index.html';
 const normalize=p=>p.replace(/\/+$/,'')||'/';
 const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
@@ -40,7 +41,12 @@ const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
  for(const route of Object.keys(routes).filter(p=>!p.startsWith('/careers/'))){
   const {dom}=await render(route,{original:true});
   const after=new JSDOM(fs.readFileSync(file(route),'utf8'));
-  assert.equal(text(after.window.document),text(dom.window.document),route+' content drift');
+  if(route==='/about'){
+   checkTeam(after.window.document);
+   teamSection(after.window.document).remove();
+   teamSection(dom.window.document).remove();
+  }
+  assert.equal(text(after.window.document),text(dom.window.document),route+' content drift outside approved team update');
   dom.window.close();after.window.close();
  }
  console.log(JSON.stringify({routes:77,indexable:urls.length,internalLinks:links,originalPageContentComparisons:71,staticMetadata:'passed',assets:'passed',unknownPage:'passed'},null,2));

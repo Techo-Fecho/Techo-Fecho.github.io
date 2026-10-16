@@ -11,3 +11,9 @@ The 12 incomplete article pages, Insights index and six existing career detail p
 Organization schema includes only company name, public URL, logo and official email. No ratings, certifications or historical-first claims are added.
 
 The deployment remains the root of `main` on GitHub Pages. To roll back, restore the backup tree in a new commit to main (do not reset shared history). Future content edits must be followed by a rebuild and tests before publishing the generated pages.
+
+## Team content
+
+The approved roster and responsibility descriptions live in `team.json`, grouped in display order. `team.cjs` updates the team data and category markup during `prepare.cjs`, retaining the shipped card styles and initials. `_seo/original-app.js` remains the original comparison baseline. No photos or social profile URLs are supplied.
+
+After editing the roster, run `npm run build`, `npm test`, `node _seo/team-test.cjs`, and `node _seo/team-browser-test.cjs` (after installing a Playwright browser). Also run the existing `node _seo/browser-test.cjs` suite. The content comparison check verifies the rest of the About page and all other pre-existing pages against the original application; separate assertions verify the approved team section. Browser screenshots are saved under ignored `_seo/test-results/`.

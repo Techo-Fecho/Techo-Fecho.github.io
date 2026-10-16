@@ -1,0 +1,67 @@
+[
+  {
+    "category": "Leadership & Management",
+    "members": [
+      {
+        "name": "Muneeb Irfan",
+        "role": "Founder",
+        "description": "Guides company direction and organizational priorities."
+      },
+      {
+        "name": "Bedřich Said",
+        "role": "Chief Executive Officer (CEO)",
+        "description": "Oversees company operations and executive decisions."
+      },
+      {
+        "name": "Nimra",
+        "role": "Business Development Officer & Team Coordinator",
+        "description": "Coordinates team activities and supports business development."
+      },
+      {
+        "name": "Hoor Qazi",
+        "role": "Team Supervisor",
+        "description": "Supervises team activities and supports day-to-day coordination."
+      }
+    ]
+  },
+  {
+    "category": "Engineering Leadership",
+    "members": [
+      {
+        "name": "Waqar Ahmad",
+        "role": "Team Lead, Product Manager & Senior Windows Kernel Developer",
+        "description": "Leads the engineering team, manages product priorities, and develops Windows kernel software."
+      },
+      {
+        "name": "Ahsan Iqbal",
+        "role": "Senior Embedded & Firmware Engineer",
+        "description": "Develops embedded systems and firmware for hardware integration."
+      },
+      {
+        "name": "Fatima Ahsan",
+        "role": "Senior Windows Application Developer",
+        "description": "Develops Windows applications and guides application implementation."
+      }
+    ]
+  },
+  {
+    "category": "Engineering Team",
+    "members": [
+      {
+        "name": "Muniba",
+        "role": "Windows Kernel Developer",
+        "description": "Develops software that operates within the Windows kernel."
+      },
+      {
+        "name": "Zubaida Mehmood",
+        "role": "Windows Application Developer",
+        "description": "Develops and maintains Windows applications."
+      },
+      {
+        "name": "Maaz Ahmad",
+        "role": "Kernel & Hardware Engineer",
+        "description": "Develops kernel software and integrates hardware interfaces."
+      }
+    ]
+  }
+]

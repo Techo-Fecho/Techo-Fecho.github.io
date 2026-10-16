@@ -21,7 +21,7 @@ $labels = ['project_type'=>'Project Type','project_stage'=>'Project Stage','tech
 $lines = ['A new project inquiry was submitted via the Haeman Tech website.', ''];
 foreach ($labels as $key => $label) { $lines[] = $label . ': ' . str_replace(["\r", "\n"], ' ', $clean[$key]); }
 $subject = 'New Haeman Tech website inquiry';
-$headers = [ 'From: Haeman Tech <contact@haemantech.com>', 'Reply-To: ' . $clean['email'], 'Content-Type: text/plain; charset=UTF-8', 'X-Mailer: PHP/' . phpversion() ];
-$sent = @mail('contact@haemantech.com', $subject, implode("\n", $lines), implode("\r\n", $headers));
+$headers = [ 'From: Haeman Tech <official@haemantech.com>', 'Reply-To: ' . $clean['email'], 'Content-Type: text/plain; charset=UTF-8', 'X-Mailer: PHP/' . phpversion() ];
+$sent = @mail('official@haemantech.com', $subject, implode("\n", $lines), implode("\r\n", $headers));
 if (!$sent) { http_response_code(503); echo json_encode(['error'=>'Mail delivery unavailable']); exit; }
 echo json_encode(['success'=>true]);

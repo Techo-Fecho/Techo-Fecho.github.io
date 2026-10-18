@@ -1,7 +1,7 @@
 {
   "/": {
-    "title": "Haeman Tech | Windows Kernel Drivers, Embedded Firmware & System Software",
-    "description": "Haeman Tech develops Windows kernel drivers, embedded firmware, hardware-integrated software, and high-performance Windows applications for complex engineering products.",
+    "title": "Low-Level Software Engineering Services | Haeman Tech",
+    "description": "Windows and Linux kernel development, embedded firmware, embedded Linux, and C/C++ systems programming. Discuss your engineering project with Haeman Tech.",
     "label": "Home",
     "noindex": false
   },
@@ -18,8 +18,8 @@
     "noindex": false
   },
   "/about": {
-    "title": "About Haeman Tech | Windows Kernel & Embedded Firmware Engineering Company",
-    "description": "Haeman Tech is a specialized low-level engineering company building Windows kernel drivers, embedded firmware, and system software for clients worldwide. Meet the engineering team behind the work.",
+    "title": "About Haeman Tech | Low-Level Engineering in Pakistan",
+    "description": "Meet Haeman Tech, a Pakistan-based company focused on Windows and Linux kernels, embedded firmware, embedded Linux, and C/C++ systems programming.",
     "label": "About",
     "noindex": false
   },

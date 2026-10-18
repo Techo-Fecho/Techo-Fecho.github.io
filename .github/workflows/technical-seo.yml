@@ -28,6 +28,7 @@ jobs:
       - run: npm test
       - run: npx playwright install --with-deps chromium
       - run: node _seo/team-browser-test.cjs
+      - run: node _seo/phase-b-browser-test.cjs
       - run: node _seo/browser-test.cjs
       - uses: actions/upload-artifact@v4
         if: always()

@@ -2,11 +2,12 @@ const fs=require('node:fs'),assert=require('node:assert/strict'),crypto=require(
 const {JSDOM}=require('jsdom');
 const routes=require('./routes.json');
 const render=require('./render.cjs');
-const {teamSection,checkTeam}=require('./team-test.cjs');
+const {checkPhaseB,checkProtectedFiles}=require('./phase-b-test.cjs');
 const file=p=>p==='/'?'index.html':p.slice(1)+'/index.html';
 const normalize=p=>p.replace(/\/+$/,'')||'/';
 const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
 (async()=>{
+ checkProtectedFiles();
  const sitemap=new JSDOM(fs.readFileSync('sitemap.xml','utf8'),{contentType:'application/xml'}).window.document;
  const urls=[...sitemap.querySelectorAll('loc')].map(x=>x.textContent);
  assert.equal(urls.length,Object.values(routes).filter(p=>!p.noindex).length);
@@ -37,17 +38,15 @@ const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
  assert.equal(errorDoc.querySelector('h1').textContent,'404');
  assert.equal(errorDoc.querySelector('meta[name="robots"]').content,'noindex, follow');
  assert.equal(errorDoc.querySelector('link[rel="canonical"]'),null);
- // Compare every pre-existing page's main text with the unchanged original React application.
+ // Preserve original content on unrelated pages; assert the approved Phase B copy separately.
  for(const route of Object.keys(routes).filter(p=>!p.startsWith('/careers/'))){
   const {dom}=await render(route,{original:true});
   const after=new JSDOM(fs.readFileSync(file(route),'utf8'));
-  if(route==='/about'){
-   checkTeam(after.window.document);
-   teamSection(after.window.document).remove();
-   teamSection(dom.window.document).remove();
+  if(route==='/'||route==='/about'){
+   checkPhaseB(after.window.document,route);dom.window.close();after.window.close();continue;
   }
-  assert.equal(text(after.window.document),text(dom.window.document),route+' content drift outside approved team update');
+  assert.equal(text(after.window.document),text(dom.window.document),route+' unrelated content drift');
   dom.window.close();after.window.close();
  }
- console.log(JSON.stringify({routes:77,indexable:urls.length,internalLinks:links,originalPageContentComparisons:71,staticMetadata:'passed',assets:'passed',unknownPage:'passed'},null,2));
+ console.log(JSON.stringify({routes:77,indexable:urls.length,internalLinks:links,originalPageContentComparisons:69,phaseBPages:2,staticMetadata:'passed',assets:'passed',unknownPage:'passed'},null,2));
 })().catch(e=>{console.error(e);process.exit(1)});

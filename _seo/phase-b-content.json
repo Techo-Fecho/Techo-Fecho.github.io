@@ -28,8 +28,20 @@
     "Visible capability chips": "Linux Kernel; C; C++; Device Interfaces; Systems Software"
   },
   "H02.4": {
-    "Service links paragraph": "Explore embedded firmware development and embedded Linux development, or discuss your Linux kernel requirements with us.",
-    "Complementary capability paragraph": "Where a project also needs a desktop interface, control panel, or background service, Windows application development complements the core engineering work."
+    "Links": [
+      {
+        "text": "Embedded firmware",
+        "href": "/services/embedded/firmware-development/"
+      },
+      {
+        "text": "Embedded Linux",
+        "href": "/services/embedded/embedded-linux/"
+      },
+      {
+        "text": "Windows applications",
+        "href": "/services/windows-applications/"
+      }
+    ]
   },
   "H03": {
     "Eyebrow": "Connected Disciplines",
@@ -120,7 +132,7 @@
   "A04.1": {
     "Label": "01",
     "H3": "Windows Kernel Development",
-    "Description": "Windows kernel components and device drivers for hardware integration, device communication, and operating-system behavior.",
+    "Description": "Windows kernel components and device drivers for hardware integration, device communication, and operating system behavior.",
     "Related link": "Windows driver development → /services/windows-kernel/"
   },
   "A04.2": {

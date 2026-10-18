@@ -17,7 +17,12 @@ function checkPhaseB(doc,path){
  if(home){
   add('H01',['Eyebrow','Supporting description','Primary CTA','Secondary CTA']);add('H02',['H2','Introduction']);
   for(const i of [1,2,3])add('H02.'+i,['H3','Summary','Link label']);
-  add('H02.4',['Service links paragraph','Complementary capability paragraph']);
+  const related=main.querySelector('nav[aria-label="Related engineering services"]');assert.ok(related,'dedicated related-service navigation');
+  assert.deepEqual([...related.querySelectorAll('a')].map(a=>a.getAttribute('href')),content['H02.4'].Links.map(l=>l.href));
+  for(const l of content['H02.4'].Links)assert.ok(text(related).includes(l.text));
+  assert.ok(!text(main).includes('Where a project also needs a desktop interface'));
+  assert.ok(!text(main).includes('Explore embedded firmware development and embedded Linux development'));
+  assert.equal(main.querySelectorAll('p a').length,0,'body paragraphs contain no inserted links');
   add('H03',['H2','Description']);add('H04',['H2','Introduction']);
   expected.push(content.H04['Stage 01'].split(': ').slice(1).join(': '));
   add('H05',['H2','Description']);add('H06',['H2','Introduction']);
@@ -31,6 +36,7 @@ function checkPhaseB(doc,path){
   for(const [key,value] of Object.entries(content.A03).filter(([key])=>key.startsWith('Principle '))){const i=value.indexOf(': ');expected.push(value.slice(0,i),value.slice(i+2));}
   for(const i of [1,2,3,4,5]){add('A04.'+i,['H3','Description']);expected.push(label(content['A04.'+i]['Related link']));}
   add('A06',['Section heading','Paragraph']);
+  assert.equal(main.querySelectorAll('p a').length,0,'About paragraph copy is free of inline links');
   checkTeam(doc);assert.equal(hash(clean(teamSection(doc))),baseline.teamSectionHash,'approved team markup/content unchanged');
  }
  for(const value of expected)assert.ok(text(main).includes(value),path+' missing approved copy: '+value);

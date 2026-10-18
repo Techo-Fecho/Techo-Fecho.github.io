@@ -21,6 +21,9 @@ for(const a of articles)add('/insights/'+a.slug,a.title+' | Haeman Tech Insights
 for(const j of jobs)add('/careers/'+j.slug,j.title+' | Careers | Haeman Tech',j.summary,j.title,true);
 add('/privacy','Privacy Policy | Haeman Tech','How Haeman Tech handles your data.','Privacy Policy');
 add('/terms','Terms of Service | Haeman Tech','How Haeman Tech handles the use of our services.','Terms of Service');
+const phaseB=require('./phase-b-content.json');
+Object.assign(pages['/'],{title:phaseB.metaHome['SEO title'],description:phaseB.metaHome['Meta description']});
+Object.assign(pages['/about'],{title:phaseB.metaAbout['SEO title'],description:phaseB.metaAbout['Meta description']});
 fs.writeFileSync('_seo/routes.json',JSON.stringify(pages,null,2)+'\n');
 let bundle=original.replace(/function VC\([\s\S]+?(?=var HC=)/,'function VC(){return null}');
 const extra=`
@@ -33,6 +36,7 @@ bundle=bundle.replace('(0,I.jsx)(qo,{path:`/careers`,element:(0,I.jsx)(PF,{})})'
 // The existing FAQ label has no FAQ content. Route it to the inquiry destination.
 bundle=bundle.replace('{label:`FAQs`,path:`/about`}','{label:`FAQs`,path:`/contact`}');
 bundle=require('./team.cjs')(bundle);
+bundle=require('./phase-b.cjs')(bundle);
 fs.writeFileSync('app-v2.js',bundle);
 const runtime=fs.readFileSync('_seo/runtime.js','utf8').replace('/* ROUTES */',JSON.stringify(pages));
 fs.writeFileSync('seo.js',runtime);

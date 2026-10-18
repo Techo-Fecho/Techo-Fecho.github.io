@@ -1,0 +1,479 @@
+{
+  "commit": "e90c4ec761576312b844721dcda5892585574a3f",
+  "teamDataHash": "d0740f2a1ca71c1919db35312d046ca6c0f996492a60f4e0360c49305c93c1d2",
+  "teamSectionHash": "1b665976cc52e5ab51289b08870ecdbc3e2c44bba9d5b641126c7e259a69da60",
+  "footerHash": "9db3b7fd6bb789e019dc1e6e62bb91594b187bd610b196582e941088bcaeeed3",
+  "routes": {
+    "/": {
+      "title": "Haeman Tech | Windows Kernel Drivers, Embedded Firmware & System Software",
+      "description": "Haeman Tech develops Windows kernel drivers, embedded firmware, hardware-integrated software, and high-performance Windows applications for complex engineering products.",
+      "label": "Home",
+      "noindex": false
+    },
+    "/services": {
+      "title": "Windows Driver Development, Embedded Firmware & System Software | Haeman Tech",
+      "description": "Haeman Tech provides Windows kernel driver development (KMDF, WDM, MiniFilter, WFP), embedded firmware engineering (STM32, ESP32, ARM Cortex-M), and native Windows application development for hardware-integrated products.",
+      "label": "Services",
+      "noindex": false
+    },
+    "/projects": {
+      "title": "Case Studies | Windows Driver & Embedded Firmware Projects | Haeman Tech",
+      "description": "Real engineering case studies — Windows kernel drivers, embedded firmware, and hardware-integrated systems shipped to production with measurable results.",
+      "label": "Projects",
+      "noindex": false
+    },
+    "/about": {
+      "title": "About Haeman Tech | Windows Kernel & Embedded Firmware Engineering Company",
+      "description": "Haeman Tech is a specialized low-level engineering company building Windows kernel drivers, embedded firmware, and system software for clients worldwide. Meet the engineering team behind the work.",
+      "label": "About",
+      "noindex": false
+    },
+    "/insights": {
+      "title": "Insights | Windows Kernel & Embedded Firmware Engineering Articles | Haeman Tech",
+      "description": "Technical articles on Windows kernel driver development, KMDF vs WDM, embedded firmware engineering, STM32 and ESP32 development, FreeRTOS, and device communication protocols.",
+      "label": "Insights",
+      "noindex": true
+    },
+    "/careers": {
+      "title": "Careers | Windows Kernel & Embedded Firmware Engineering Jobs | Haeman Tech",
+      "description": "Join Haeman Tech as a Windows kernel developer, embedded firmware engineer, or C++ system software developer. Work on real low-level engineering problems with global clients.",
+      "label": "Careers",
+      "noindex": false
+    },
+    "/contact": {
+      "title": "Start a Project | Windows Driver & Embedded Firmware Inquiry | Haeman Tech",
+      "description": "Tell Haeman Tech about your Windows kernel driver, embedded firmware, or hardware-integrated software project. A structured discovery process to scope your engineering needs.",
+      "label": "Contact",
+      "noindex": false
+    },
+    "/services/windows-kernel": {
+      "title": "Windows Kernel & Driver Development | Haeman Tech",
+      "description": "Haeman Tech provides specialized Windows kernel driver development — KMDF drivers, WDM drivers, MiniFilter drivers, WFP callouts, USB drivers, virtual device drivers, and audio drivers — engineered for stability, performance, and Microsoft-signed deployment.",
+      "label": "Windows Kernel & Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/kmdf-driver-development": {
+      "title": "KMDF Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Framework-based KMDF drivers that simplify power management, PnP, and I/O handling.",
+      "label": "KMDF Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/wdm-drivers": {
+      "title": "WDM Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Low-level WDM drivers for legacy and custom hardware interfaces.",
+      "label": "WDM Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/minifilter-drivers": {
+      "title": "Windows MiniFilter Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "File system minifilter drivers for security, monitoring, and virtualization.",
+      "label": "Windows MiniFilter Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/wfp-development": {
+      "title": "Windows WFP Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Windows Filtering Platform callouts for network inspection and policy enforcement.",
+      "label": "Windows WFP Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/audio-drivers": {
+      "title": "Windows Audio Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Custom virtual and hardware audio endpoint drivers.",
+      "label": "Windows Audio Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/usb-drivers": {
+      "title": "USB Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "USB client and host drivers with reliable enumeration and transfer handling.",
+      "label": "USB Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/smart-card-drivers": {
+      "title": "Smart Card Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Smart card functional drivers and reader minidrivers.",
+      "label": "Smart Card Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/virtual-devices": {
+      "title": "Virtual Device Driver Development | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Virtual device drivers for emulation and software-only peripherals.",
+      "label": "Virtual Device Driver Development",
+      "noindex": false
+    },
+    "/services/windows-kernel/debugging-bsod": {
+      "title": "Debugging & BSOD Analysis | Windows Kernel & Drivers | Haeman Tech",
+      "description": "Crash dump analysis, root-cause identification, and stability hardening.",
+      "label": "Debugging & BSOD Analysis",
+      "noindex": false
+    },
+    "/services/embedded": {
+      "title": "Embedded Systems & Firmware Development | Haeman Tech",
+      "description": "Haeman Tech delivers embedded systems development and firmware engineering on STM32, ESP32, RP2040, and ARM Cortex-M platforms — including FreeRTOS integration, embedded Linux, boot optimization, OTA updates, and hardware-software integration for production devices.",
+      "label": "Embedded Systems & Firmware Development",
+      "noindex": false
+    },
+    "/services/embedded/stm32": {
+      "title": "STM32 Firmware Development | Embedded Systems | Haeman Tech",
+      "description": "Full-stack STM32 firmware from HAL configuration to custom peripherals.",
+      "label": "STM32 Firmware Development",
+      "noindex": false
+    },
+    "/services/embedded/esp32": {
+      "title": "ESP32 Development | Embedded Systems | Haeman Tech",
+      "description": "Wi-Fi and Bluetooth-connected firmware on ESP32 platforms.",
+      "label": "ESP32 Development",
+      "noindex": false
+    },
+    "/services/embedded/rp2040": {
+      "title": "Raspberry Pi RP2040 Development | Embedded Systems | Haeman Tech",
+      "description": "Dual-core RP2040 firmware and PIO-based custom interfaces.",
+      "label": "Raspberry Pi RP2040 Development",
+      "noindex": false
+    },
+    "/services/embedded/embedded-linux": {
+      "title": "Embedded Linux Development | Embedded Systems | Haeman Tech",
+      "description": "Custom Board Support Packages, Buildroot images, and kernel tuning.",
+      "label": "Embedded Linux Development",
+      "noindex": false
+    },
+    "/services/embedded/freertos": {
+      "title": "FreeRTOS Development | Embedded Systems | Haeman Tech",
+      "description": "Real-time task scheduling and deterministic firmware design.",
+      "label": "FreeRTOS Development",
+      "noindex": false
+    },
+    "/services/embedded/firmware-development": {
+      "title": "Embedded Firmware Development | Embedded Systems | Haeman Tech",
+      "description": "Bare-metal and RTOS firmware for custom boards and products.",
+      "label": "Embedded Firmware Development",
+      "noindex": false
+    },
+    "/services/embedded/boot-optimization": {
+      "title": "Boot Optimization | Embedded Systems | Haeman Tech",
+      "description": "Sub-second boot times for production embedded devices.",
+      "label": "Boot Optimization",
+      "noindex": false
+    },
+    "/services/embedded/ota": {
+      "title": "OTA Firmware Updates | Embedded Systems | Haeman Tech",
+      "description": "Reliable over-the-air update pipelines with rollback support.",
+      "label": "OTA Firmware Updates",
+      "noindex": false
+    },
+    "/services/embedded/bluetooth": {
+      "title": "Bluetooth Integration | Embedded Systems | Haeman Tech",
+      "description": "BLE and Classic Bluetooth stacks and custom profiles.",
+      "label": "Bluetooth Integration",
+      "noindex": false
+    },
+    "/services/embedded/iot": {
+      "title": "IoT Firmware Development | Embedded Systems | Haeman Tech",
+      "description": "End-to-end IoT systems from edge sensor to cloud telemetry.",
+      "label": "IoT Firmware Development",
+      "noindex": false
+    },
+    "/services/embedded/audio-dsp": {
+      "title": "Audio & DSP | Embedded Systems | Haeman Tech",
+      "description": "Digital signal processing for embedded audio pipelines.",
+      "label": "Audio & DSP",
+      "noindex": false
+    },
+    "/services/windows-applications": {
+      "title": "Windows Application Development | Haeman Tech",
+      "description": "Haeman Tech builds native Windows applications in C++ and C# — system utilities, hardware control panels, monitoring tools, and background services that communicate directly with kernel drivers and hardware layers for performance-critical use cases.",
+      "label": "Windows Application Development",
+      "noindex": false
+    },
+    "/services/windows-applications/native-cpp": {
+      "title": "C++ Windows Development | Windows Applications | Haeman Tech",
+      "description": "High-performance native Win32 and modern C++ desktop applications.",
+      "label": "C++ Windows Development",
+      "noindex": false
+    },
+    "/services/windows-applications/hardware-control": {
+      "title": "Hardware Control UI | Windows Applications | Haeman Tech",
+      "description": "Control panels that drive custom hardware through kernel drivers.",
+      "label": "Hardware Control UI",
+      "noindex": false
+    },
+    "/services/windows-applications/system-utilities": {
+      "title": "System Utilities | Windows Applications | Haeman Tech",
+      "description": "Diagnostic, monitoring, and configuration utilities.",
+      "label": "System Utilities",
+      "noindex": false
+    },
+    "/services/windows-applications/windows-services": {
+      "title": "Windows Services | Windows Applications | Haeman Tech",
+      "description": "Background services for system-level automation.",
+      "label": "Windows Services",
+      "noindex": false
+    },
+    "/services/windows-applications/driver-ui": {
+      "title": "Driver UI & Communication | Windows Applications | Haeman Tech",
+      "description": "User-mode interfaces with IOCTL-based driver backends.",
+      "label": "Driver UI & Communication",
+      "noindex": false
+    },
+    "/services/windows-applications/desktop-applications": {
+      "title": "Desktop Applications | Windows Applications | Haeman Tech",
+      "description": "Polished, production-ready Windows desktop software.",
+      "label": "Desktop Applications",
+      "noindex": false
+    },
+    "/projects/virtual-audio-driver": {
+      "title": "Patchd Virtual Audio Driver | Case Study | Haeman Tech",
+      "description": "A kernel-mode virtual audio device exposing 12 independent endpoints with sub-10ms latency.",
+      "label": "Patchd Virtual Audio Driver",
+      "noindex": false
+    },
+    "/projects/smart-card-functional-driver": {
+      "title": "CCID Smart Card Functional Driver | Case Study | Haeman Tech",
+      "description": "A WDM smart-card functional driver with reader minidriver for secure enterprise authentication.",
+      "label": "CCID Smart Card Functional Driver",
+      "noindex": false
+    },
+    "/projects/embedded-dsp-anc-platform": {
+      "title": "ADAU1787 ANC / Audio DSP | Case Study | Haeman Tech",
+      "description": "Real-time active noise cancellation on STM32H7 with custom DSP pipeline and I2S audio.",
+      "label": "ADAU1787 ANC / Audio DSP",
+      "noindex": false
+    },
+    "/projects/raspberry-pi-fast-boot": {
+      "title": "Raspberry Pi Zero 2 W Fast Boot Recorder | Case Study | Haeman Tech",
+      "description": "Embedded Linux boot optimization bringing cold-boot to video capture under 1.2 seconds.",
+      "label": "Raspberry Pi Zero 2 W Fast Boot Recorder",
+      "noindex": false
+    },
+    "/projects/stm32-led-controller": {
+      "title": "STM32 LED Controller | Case Study | Haeman Tech",
+      "description": "CAN-bus LED lighting controller for industrial environments with over-the-air firmware updates.",
+      "label": "STM32 LED Controller",
+      "noindex": false
+    },
+    "/projects/bluetooth-multi-speaker": {
+      "title": "Bluetooth Multi-Speaker Audio System | Case Study | Haeman Tech",
+      "description": "ESP32-based synchronized multi-speaker audio over BLE with sub-20ms inter-unit drift.",
+      "label": "Bluetooth Multi-Speaker Audio System",
+      "noindex": false
+    },
+    "/projects/windows-mfa-system": {
+      "title": "Windows MFA Credential Provider + Kernel Driver | Case Study | Haeman Tech",
+      "description": "Credential provider and system service delivering hardware-backed MFA at the Windows logon screen.",
+      "label": "Windows MFA Credential Provider + Kernel Driver",
+      "noindex": false
+    },
+    "/projects/windows-folder-protection": {
+      "title": "Windows Folder / File Protection | Case Study | Haeman Tech",
+      "description": "A MiniFilter-based file protection system preventing unauthorized access to sensitive folders.",
+      "label": "Windows Folder / File Protection",
+      "noindex": false
+    },
+    "/projects/virtual-71-audio": {
+      "title": "Virtual 7.1 Audio Endpoint Driver | Case Study | Haeman Tech",
+      "description": "KMDF virtual audio driver exposing 7.1 surround endpoints for gaming and pro audio software.",
+      "label": "Virtual 7.1 Audio Endpoint Driver",
+      "noindex": false
+    },
+    "/projects/sandboxie-system": {
+      "title": "Sandboxie-Related C++ System Programming | Case Study | Haeman Tech",
+      "description": "Process isolation and sandboxing system using kernel drivers and C++ user-mode components.",
+      "label": "Sandboxie-Related C++ System Programming",
+      "noindex": false
+    },
+    "/projects/vostok-shared-memory": {
+      "title": "Vostok Shared Memory Driver | Case Study | Haeman Tech",
+      "description": "High-throughput shared memory driver for zero-copy IPC between user-mode and kernel components.",
+      "label": "Vostok Shared Memory Driver",
+      "noindex": false
+    },
+    "/projects/driver-signing": {
+      "title": "Microsoft Driver Signing / Partner Program | Case Study | Haeman Tech",
+      "description": "End-to-end WHQL certification and Microsoft Partner Center driver attestation signing pipeline.",
+      "label": "Microsoft Driver Signing / Partner Program",
+      "noindex": false
+    },
+    "/projects/esp32-mixamp-rust": {
+      "title": "ESP32 MixAmp Rust Port | Case Study | Haeman Tech",
+      "description": "Porting a multi-channel audio mixer firmware from C to Rust on ESP32 with I2S audio routing.",
+      "label": "ESP32 MixAmp Rust Port",
+      "noindex": false
+    },
+    "/projects/ws2812-stm32-nucleo": {
+      "title": "WS2812 Driver on STM32 Nucleo | Case Study | Haeman Tech",
+      "description": "DMA-driven WS2812 LED strip controller on STM32 Nucleo with pattern engine and CAN control.",
+      "label": "WS2812 Driver on STM32 Nucleo",
+      "noindex": false
+    },
+    "/projects/bldc-motor-controller": {
+      "title": "BLDC Motor Controller | Case Study | Haeman Tech",
+      "description": "Sensorless BLDC motor controller with field-oriented control on STM32 for industrial actuation.",
+      "label": "BLDC Motor Controller",
+      "noindex": false
+    },
+    "/projects/rp2040-thonny": {
+      "title": "RP2040 / Thonny Firmware Work | Case Study | Haeman Tech",
+      "description": "Custom RP2040 firmware and MicroPython toolchain integration for the Thonny IDE.",
+      "label": "RP2040 / Thonny Firmware Work",
+      "noindex": false
+    },
+    "/projects/fpga-radar": {
+      "title": "FPGA Radar Firmware Project | Case Study | Haeman Tech",
+      "description": "FPGA-based radar signal processing firmware with real-time Doppler and range extraction.",
+      "label": "FPGA Radar Firmware Project",
+      "noindex": false
+    },
+    "/projects/perfexcrm-offline": {
+      "title": "PerfexCRM Windows Offline MVP | Case Study | Haeman Tech",
+      "description": "Offline-first Windows desktop CRM application with local SQLite sync and C++/Win32 UI.",
+      "label": "PerfexCRM Windows Offline MVP",
+      "noindex": false
+    },
+    "/projects/pikvm-remote": {
+      "title": "PiKVM Remote Audio/Video System | Case Study | Haeman Tech",
+      "description": "Remote KVM solution with integrated audio/video streaming over IP for headless machine management.",
+      "label": "PiKVM Remote Audio/Video System",
+      "noindex": false
+    },
+    "/projects/virtual-device-driver": {
+      "title": "Virtual Device Driver | Case Study | Haeman Tech",
+      "description": "A KMDF virtual device driver enabling software-only peripheral emulation for testing pipelines.",
+      "label": "Virtual Device Driver",
+      "noindex": false
+    },
+    "/projects/embedded-linux-system": {
+      "title": "Embedded Linux Industrial Gateway | Case Study | Haeman Tech",
+      "description": "A custom BSP and hardened userspace for an industrial gateway with remote fleet management.",
+      "label": "Embedded Linux Industrial Gateway",
+      "noindex": false
+    },
+    "/insights/understanding-kmdf-driver-architecture": {
+      "title": "Understanding KMDF Driver Architecture | Haeman Tech Insights",
+      "description": "A structural walkthrough of the KMDF object model, I/O targets, and how the framework abstracts the hard parts of WDM driver development.",
+      "label": "Understanding KMDF Driver Architecture",
+      "noindex": true
+    },
+    "/insights/kmdf-vs-wdm": {
+      "title": "KMDF vs WDM: Choosing the Right Driver Model | Haeman Tech Insights",
+      "description": "When the KMDF framework helps and when you genuinely need raw WDM — a decision framework for new Windows driver development projects.",
+      "label": "KMDF vs WDM: Choosing the Right Driver Model",
+      "noindex": true
+    },
+    "/insights/kernel-user-mode-communication": {
+      "title": "How Windows Kernel Drivers Communicate with User Mode | Haeman Tech Insights",
+      "description": "IOCTLs, shared memory, and inverted call models — the real mechanics of crossing the user/kernel boundary in Windows system programming.",
+      "label": "How Windows Kernel Drivers Communicate with User Mode",
+      "noindex": true
+    },
+    "/insights/understanding-ioctl-communication": {
+      "title": "Understanding IOCTL Communication in Windows Drivers | Haeman Tech Insights",
+      "description": "Method-buffered vs method-direct vs method-neither, and why the wrong IOCTL choice causes silent data corruption in Windows drivers.",
+      "label": "Understanding IOCTL Communication in Windows Drivers",
+      "noindex": true
+    },
+    "/insights/building-reliable-usb-drivers": {
+      "title": "Building Reliable Windows USB Drivers | Haeman Tech Insights",
+      "description": "Enumeration, selective suspend, and transfer robustness — the failure modes that ship in real USB driver development.",
+      "label": "Building Reliable Windows USB Drivers",
+      "noindex": true
+    },
+    "/insights/windows-driver-signing-explained": {
+      "title": "Windows Driver Signing Explained | Haeman Tech Insights",
+      "description": "From EV certificates to WHQL submission — the complete path to a deployable, Microsoft-signed Windows driver.",
+      "label": "Windows Driver Signing Explained",
+      "noindex": true
+    },
+    "/insights/embedded-linux-boot-optimization": {
+      "title": "Embedded Linux Boot Time Optimization | Haeman Tech Insights",
+      "description": "Kernel pruning, initramfs tuning, and fastboot techniques that took a Raspberry Pi from 30s to 1.2s cold boot.",
+      "label": "Embedded Linux Boot Time Optimization",
+      "noindex": true
+    },
+    "/insights/stm32-vs-esp32": {
+      "title": "STM32 vs ESP32: A Practical Comparison for Firmware Development | Haeman Tech Insights",
+      "description": "Not a spec-sheet fight — a decision guide based on real embedded projects, peripherals, and power budgets.",
+      "label": "STM32 vs ESP32: A Practical Comparison for Firmware Development",
+      "noindex": true
+    },
+    "/insights/designing-ota-firmware-updates": {
+      "title": "Designing Reliable OTA Firmware Updates | Haeman Tech Insights",
+      "description": "Dual-bank images, atomic switches, and rollback — the architecture that makes field firmware updates safe.",
+      "label": "Designing Reliable OTA Firmware Updates",
+      "noindex": true
+    },
+    "/insights/uart-spi-i2c-can": {
+      "title": "UART vs SPI vs I2C vs CAN: Choosing the Right Bus | Haeman Tech Insights",
+      "description": "When each device communication protocol is the right choice, the failure modes of each, and how to mix them on one MCU.",
+      "label": "UART vs SPI vs I2C vs CAN: Choosing the Right Bus",
+      "noindex": true
+    },
+    "/insights/bare-metal-vs-freertos": {
+      "title": "Bare Metal vs FreeRTOS: When to Use an RTOS | Haeman Tech Insights",
+      "description": "The real cost of an RTOS — when determinism and concurrency justify the overhead, and when bare-metal firmware is the better choice.",
+      "label": "Bare Metal vs FreeRTOS: When to Use an RTOS",
+      "noindex": true
+    },
+    "/insights/debugging-firmware-oscilloscope": {
+      "title": "Debugging Firmware with Oscilloscopes and Logic Analyzers | Haeman Tech Insights",
+      "description": "The instruments that find the bugs your debugger can't — protocol decoding, glitches, and timing in embedded firmware.",
+      "label": "Debugging Firmware with Oscilloscopes and Logic Analyzers",
+      "noindex": true
+    },
+    "/careers/windows-kernel-engineer": {
+      "title": "Windows Kernel Driver Engineer | Careers | Haeman Tech",
+      "description": "Build production KMDF and WDM drivers for real hardware, from architecture to WHQL certification.",
+      "label": "Windows Kernel Driver Engineer",
+      "noindex": true
+    },
+    "/careers/embedded-firmware-engineer": {
+      "title": "Embedded Firmware Engineer | Careers | Haeman Tech",
+      "description": "Develop bare-metal and RTOS firmware on STM32 and ESP32 for production devices.",
+      "label": "Embedded Firmware Engineer",
+      "noindex": true
+    },
+    "/careers/windows-application-engineer": {
+      "title": "Windows Application Engineer | Careers | Haeman Tech",
+      "description": "Build native Windows applications that communicate with driver and hardware layers.",
+      "label": "Windows Application Engineer",
+      "noindex": true
+    },
+    "/careers/embedded-linux-engineer": {
+      "title": "Embedded Linux Engineer | Careers | Haeman Tech",
+      "description": "Build minimal, secure, remotely-updatable embedded Linux images on custom hardware.",
+      "label": "Embedded Linux Engineer",
+      "noindex": true
+    },
+    "/careers/kernel-engineer-intern": {
+      "title": "Kernel Engineering Intern | Careers | Haeman Tech",
+      "description": "Learn the Windows kernel and driver stack hands-on, shipping real code on real projects.",
+      "label": "Kernel Engineering Intern",
+      "noindex": true
+    },
+    "/careers/operations-manager": {
+      "title": "Operations Manager | Careers | Haeman Tech",
+      "description": "Run the operational backbone of a deep-tech engineering company.",
+      "label": "Operations Manager",
+      "noindex": true
+    },
+    "/privacy": {
+      "title": "Privacy Policy | Haeman Tech",
+      "description": "How Haeman Tech handles your data.",
+      "label": "Privacy Policy",
+      "noindex": false
+    },
+    "/terms": {
+      "title": "Terms of Service | Haeman Tech",
+      "description": "How Haeman Tech handles the use of our services.",
+      "label": "Terms of Service",
+      "noindex": false
+    }
+  },
+  "headerHashes": {
+    "/": [
+      "0e7cc970ef2829c22af5294c6fd4ea5ce36f4d0165a2f4aeab2caf22148534ab"
+    ],
+    "/about": [
+      "4889c750aa36c7334b5bc69a15a7ae7104748abe1fd5acd29a020d6ae70588d6",
+      "274bf3b1cc13e8211a7e465c3ea9d304717a3440b62283b0ea366084bf2d1da9"
+    ]
+  }
+}

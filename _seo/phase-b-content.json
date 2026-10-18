@@ -1,0 +1,170 @@
+{
+  "H01": {
+    "Eyebrow": "Low-level software engineering",
+    "H1": "Low-Level Software Engineering for Complex Systems",
+    "Supporting description": "Windows and Linux kernel development, embedded firmware, embedded Linux, and C/C++ systems programming for products that work with hardware. Share your requirements or an existing system problem.",
+    "Primary CTA": "Discuss Your Project",
+    "Secondary CTA": "Explore Engineering Services"
+  },
+  "H02": {
+    "Eyebrow": "Core Services",
+    "H2": "Core Low-Level Engineering Services",
+    "Introduction": "Choose the engineering work your system needs, from operating system components to device firmware and system software."
+  },
+  "H02.1": {
+    "H3": "Windows Kernel Development",
+    "Summary": "Windows kernel components and device drivers for hardware integration, device communication, and system-level behavior.",
+    "Link label": "Explore Windows Driver Development"
+  },
+  "H02.2": {
+    "H3": "Embedded Firmware and Embedded Linux",
+    "Summary": "Firmware for microcontrollers and devices running an RTOS. Embedded Linux development for board support, system images, and user-space integration.",
+    "Link label": "Explore Embedded Engineering"
+  },
+  "H02.3": {
+    "H3": "Linux Kernel and Systems Programming",
+    "Summary": "Linux kernel development for device interfaces and kernel-level behavior. C/C++ systems programming for the surrounding services and software components.",
+    "Link label": "Discuss Your Project",
+    "Visible capability chips": "Linux Kernel; C; C++; Device Interfaces; Systems Software"
+  },
+  "H02.4": {
+    "Service links paragraph": "Explore embedded firmware development and embedded Linux development, or discuss your Linux kernel requirements with us.",
+    "Complementary capability paragraph": "Where a project also needs a desktop interface, control panel, or background service, Windows application development complements the core engineering work."
+  },
+  "H03": {
+    "Eyebrow": "Connected Disciplines",
+    "H2": "How the Engineering Areas Connect",
+    "Description": "Explore related service areas and the interfaces between them. Select a node to open its service page."
+  },
+  "H04": {
+    "Eyebrow": "Development Process",
+    "H2": "From Requirements to Release",
+    "Introduction": "A project-specific process for defining, developing, and checking the work. Scope and deliverables are agreed around the system requirements.",
+    "Stage 01": "Discover: Review the target platform, existing software, and expected behavior. Agree the problem and the information needed to scope the work.",
+    "Stage 02": "Architect: Define component responsibilities, interfaces, and dependencies around the system requirements.",
+    "Stage 03": "Prototype: Investigate uncertain hardware or software behavior before committing to the full implementation.",
+    "Stage 04": "Implement: Develop the agreed components and their integration with the target system.",
+    "Stage 05": "Validate: Test the delivered behavior against agreed requirements using appropriate software checks and hardware measurements.",
+    "Stage 06": "Release: Prepare the agreed build, packaging, and handover materials. Address applicable signing or update requirements within the scope.",
+    "Stage 07": "Support: Agree who will investigate reported issues, provide fixes, and maintain the software after release."
+  },
+  "H05": {
+    "Eyebrow": "Platforms and Tools",
+    "H2": "Technologies for System-Level Development",
+    "Description": "Technology choices depend on the hardware, operating system, and requirements of the project.",
+    "Languages": "C; C++; Rust; C#; Python",
+    "Windows": "KMDF; WDM; WinDbg; WDK; Win32; ETW; WFP",
+    "Embedded": "STM32; ESP32; RP2040; ARM Cortex-M; Raspberry Pi; FreeRTOS; Zephyr",
+    "Hardware": "Oscilloscope; Logic Analyzer; JTAG; SWD; PCB",
+    "Protocols": "UART; SPI; I2C; CAN; USB; Bluetooth; Wi-Fi; PCIe",
+    "Platforms": "Windows 10/11; Embedded Linux; Buildroot; Yocto"
+  },
+  "H06": {
+    "Eyebrow": "Engineering Problems",
+    "H2": "Engineering Problems We Work On",
+    "Introduction": "Start with the system, the observed behavior, and the conditions that cause the problem."
+  },
+  "H06.1": {
+    "Card heading": "Driver Crashes and Device Failures",
+    "Body": "A driver crashes, a device disconnects, or an operation fails under load. Identify a reproducible failure and define how the underlying issue will be investigated.",
+    "Footer": "Windows driver debugging → /services/windows-kernel/debugging-bsod/"
+  },
+  "H06.2": {
+    "Card heading": "Firmware and Hardware Bring-Up",
+    "Body": "A board needs firmware before its peripherals and application behavior can be tested together. Define the hardware inputs, interfaces, and expected device behavior.",
+    "Footer": "Embedded firmware development → /services/embedded/firmware-development/"
+  },
+  "H06.3": {
+    "Card heading": "Linux Kernel and Device Interfaces",
+    "Body": "A device interface needs kernel-level development or investigation. Define the target hardware, kernel version, and expected behavior before deciding what changes are needed.",
+    "Footer": "Discuss Linux kernel requirements → /contact/"
+  },
+  "H06.4": {
+    "Card heading": "C/C++ Component Integration",
+    "Body": "Services and software components need a clear communication contract. Define data ownership, request handling, and failure behavior so the parts can be developed and tested together.",
+    "Footer": "C++ Windows development → /services/windows-applications/native-cpp/"
+  },
+  "H07": {
+    "Eyebrow": "Project Discussion",
+    "H2": "Discuss Your Engineering Requirements",
+    "Paragraph": "Tell us about your target platform, existing code, and the behavior you need to achieve. We can discuss the scope and information needed to plan the work.",
+    "Primary CTA": "Discuss Your Project → /contact/",
+    "Secondary CTA": "Explore Our Services → /services/"
+  },
+  "A01": {
+    "Eyebrow": "About",
+    "H1": "A Pakistan-based company dedicated to low-level software engineering.",
+    "Hero description": "Haeman Tech focuses on Windows and Linux kernel development, embedded firmware, embedded Linux, and C/C++ systems programming. Windows applications complement this work where a project needs a desktop interface or supporting service."
+  },
+  "A02": {
+    "Eyebrow": "Engineering Focus",
+    "H2": "Software Engineering Close to the Hardware",
+    "Paragraph 1": "Based in Pakistan, Haeman Tech works on software that connects operating systems, devices, and the components around them. The focus is on kernel development, embedded software, and C/C++ systems programming.",
+    "Paragraph 2": "Linux kernel development addresses code and interfaces within the kernel. Embedded Linux development addresses the wider device platform, including board support, system images, and user-space integration. These scopes can overlap on a device, but the work and acceptance criteria need to be defined explicitly.",
+    "Paragraph 3": "An engagement starts with the target platform, available hardware, existing software, and expected behavior. These inputs help define the scope, integration responsibilities, development milestones, and testing required for the work.",
+    "Contact link": "Discuss Your Project → /contact/"
+  },
+  "A03": {
+    "Eyebrow": "Development Approach",
+    "H2": "Define the System, Interfaces and Tests",
+    "Principle 1": "System Constraints: Understand the operating system, hardware, and expected behavior before defining the implementation.",
+    "Principle 2": "Clear Interfaces: Agree component responsibilities, communication contracts, and integration assumptions.",
+    "Principle 3": "Testable Requirements: Define how the delivered behavior will be checked, using software tests and hardware measurements where appropriate.",
+    "Principle 4": "Project Communication: Discuss technical decisions, dependencies, and unresolved questions at agreed review points.",
+    "Principle 5": "Practical Handover: Agree the source code, build, configuration, and test documentation deliverables, together with release and maintenance responsibilities."
+  },
+  "A04": {
+    "Eyebrow": "Engineering Disciplines",
+    "H2": "Our Primary Engineering Focus"
+  },
+  "A04.1": {
+    "Label": "01",
+    "H3": "Windows Kernel Development",
+    "Description": "Windows kernel components and device drivers for hardware integration, device communication, and operating-system behavior.",
+    "Related link": "Windows driver development → /services/windows-kernel/"
+  },
+  "A04.2": {
+    "Label": "02",
+    "H3": "Linux Kernel Development",
+    "Description": "Linux kernel components and device driver interfaces, scoped to the target hardware, kernel version, and required kernel-level behavior.",
+    "Related link": "Discuss Linux kernel requirements → /contact/"
+  },
+  "A04.3": {
+    "Label": "03",
+    "H3": "Embedded Firmware",
+    "Description": "Firmware for microcontrollers and RTOS-based devices, covering peripheral communication, device behavior, and integration with the hardware.",
+    "Related link": "Embedded firmware development → /services/embedded/firmware-development/"
+  },
+  "A04.4": {
+    "Label": "04",
+    "H3": "Embedded Linux Development",
+    "Description": "Board support, system images, boot configuration, and user-space integration for devices running Linux. Any kernel changes are identified and scoped explicitly.",
+    "Related link": "Embedded Linux development → /services/embedded/embedded-linux/"
+  },
+  "A04.5": {
+    "Label": "05",
+    "H3": "C/C++ Systems Programming",
+    "Description": "C/C++ software for system interfaces, background components, and device communication. Windows application development complements this work when a desktop interface or control panel is needed.",
+    "Related link": "C++ Windows development → /services/windows-applications/native-cpp/"
+  },
+  "A06": {
+    "Section heading": "Discuss Your Engineering Requirements",
+    "Paragraph": "Share your target platform and the engineering problem you need to address. We can discuss the scope, dependencies, and information needed to plan the work.",
+    "CTA": "Discuss Your Project → /contact/"
+  },
+  "metaHome": {
+    "SEO title": "Low-Level Software Engineering Services | Haeman Tech",
+    "Meta description": "Windows and Linux kernel development, embedded firmware, embedded Linux, and C/C++ systems programming. Discuss your engineering project with Haeman Tech.",
+    "Canonical": "https://haemantech.com/",
+    "Robots": "index, follow"
+  },
+  "metaAbout": {
+    "SEO title": "About Haeman Tech | Low-Level Engineering in Pakistan",
+    "Meta description": "Meet Haeman Tech, a Pakistan-based company focused on Windows and Linux kernels, embedded firmware, embedded Linux, and C/C++ systems programming.",
+    "Canonical": "https://haemantech.com/about/",
+    "Robots": "index, follow",
+    "Page": "Supporting focus",
+    "Homepage": "Windows kernel, Linux kernel, firmware, embedded Linux and C/C++ systems programming; Windows applications complementary",
+    "About": "Company focus, distinct engineering disciplines, development approach and approved team"
+  }
+}

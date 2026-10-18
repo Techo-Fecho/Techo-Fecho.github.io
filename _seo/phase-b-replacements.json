@@ -1,0 +1,125 @@
+{
+  "H01": {
+    "Eyebrow": {
+      "current": "Windows Kernel · Embedded Firmware · System Software"
+    },
+    "Supporting description": {
+      "current": "Haeman Tech is a specialized low-level engineering company building production-grade Windows kernel drivers, embedded firmware, and high-performance system software where hardware and software meet."
+    },
+    "Primary CTA": {
+      "current": "Start a Project"
+    },
+    "Secondary CTA": {
+      "current": "Explore Our Work"
+    }
+  },
+  "H02": {
+    "H2": {
+      "current": "Windows kernel drivers, embedded firmware, and system software."
+    },
+    "Introduction": {
+      "current": "We operate across the full depth of the system — from ring-zero Windows kernel driver development to bare-metal embedded firmware and the native Windows applications that tie them together."
+    }
+  },
+  "H03": {
+    "Eyebrow": {
+      "current": "Engineering Ecosystem"
+    },
+    "H2": {
+      "current": "The capability map"
+    },
+    "Description": {
+      "current": "Every discipline we practice connects back to a single engineering core. Hover a node to trace the relationship — click to open the service."
+    }
+  },
+  "H04": {
+    "Eyebrow": {
+      "current": "How We Work"
+    },
+    "H2": {
+      "current": "The engineering pipeline"
+    },
+    "Introduction": {
+      "current": "A disciplined path from problem to deployed system — every stage de-risks the next."
+    }
+  },
+  "H05": {
+    "Eyebrow": {
+      "current": "Technology Stack"
+    },
+    "H2": {
+      "current": "The tools of the trade"
+    },
+    "Description": {
+      "current": "Not an icon grid — a working inventory of the languages, frameworks, and instruments we use to ship real systems."
+    }
+  },
+  "H06": {
+    "Eyebrow": {
+      "current": "Client Signal"
+    },
+    "H2": {
+      "current": "What partners say"
+    },
+    "Introduction": {
+      "current": "We let the work speak. Here's what the people who shipped with us have to say."
+    }
+  },
+  "H07": {
+    "Eyebrow": {
+      "current": "Ready when you are"
+    },
+    "Paragraph": {
+      "current": "If it lives in the Windows kernel, the embedded firmware, or the space where hardware meets software — that's exactly where we work. Tell us what you're building."
+    }
+  },
+  "A01": {
+    "H1": {
+      "current": "A specialized Windows kernel and embedded firmware engineering company."
+    },
+    "Hero description": {
+      "current": "Haeman Tech operates where most teams can't reach — the Windows kernel, bare-metal firmware, and the silicon boundary. We build production-grade system software for clients worldwide."
+    }
+  },
+  "A02": {
+    "Eyebrow": {
+      "current": "Our Story"
+    },
+    "H2": {
+      "current": "From ring zero outward."
+    },
+    "Paragraph 1": {
+      "current": "Haeman Tech was founded on a single conviction: the hardest, most valuable engineering work happens below the surface — in the Windows kernel, in bare-metal firmware, in the device communication protocols that move data between a microcontroller and the world."
+    },
+    "Paragraph 2": {
+      "current": "Most software agencies stop at the application layer. We don't. We write the Windows kernel drivers, the embedded firmware, and the system software that makes hardware actually work — and we ship it to production, signed, certified, and stable."
+    },
+    "Paragraph 3": {
+      "current": "Today we're a full deep-tech engineering team serving clients globally, from enterprise security vendors to hardware startups, on problems that demand genuine systems expertise in Windows kernel development, embedded systems, and hardware-software integration."
+    }
+  },
+  "A03": {
+    "Eyebrow": {
+      "current": "Engineering Philosophy"
+    },
+    "H2": {
+      "current": "We don't just write code. We master the machine."
+    }
+  },
+  "A04": {
+    "Eyebrow": {
+      "current": "Journey"
+    },
+    "H2": {
+      "current": "The path so far."
+    }
+  },
+  "A06": {
+    "Section heading": {
+      "current": "Building something at the hardware boundary?"
+    },
+    "Paragraph": {
+      "current": "Tell us what you're building — we'll tell you if we can help."
+    }
+  }
+}

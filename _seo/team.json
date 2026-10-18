@@ -1,6 +1,6 @@
 [
   {
-    "category": "Leadership & Management",
+    "category": "Leadership",
     "members": [
       {
         "name": "Muneeb Irfan",
@@ -11,7 +11,12 @@
         "name": "Bedřich Said",
         "role": "Chief Executive Officer (CEO)",
         "description": "Oversees company operations, engineering delivery, and business priorities, ensuring coordination between technical teams and client requirements."
-      },
+      }
+    ]
+  },
+  {
+    "category": "Management & Coordination",
+    "members": [
       {
         "name": "Nimra",
         "role": "Business Development Officer & Team Coordinator",

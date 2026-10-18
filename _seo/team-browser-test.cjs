@@ -26,10 +26,19 @@ const routes=require('./routes.json');
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false,'page overflow');
    assert.equal(await section.locator('.group').evaluateAll(cards=>cards.some(c=>c.scrollWidth>c.clientWidth+2)),false,'card overflow');
    assert.equal(await section.locator('.grid').evaluateAll(grids=>grids.every(grid=>{const heights=[...grid.children].map(c=>c.getBoundingClientRect().height);return Math.max(...heights)-Math.min(...heights)<2})),true,'consistent card heights within categories');
+   const grids=await section.locator('.grid').evaluateAll(grids=>grids.map(grid=>({columns:getComputedStyle(grid).gridTemplateColumns.split(' ').length,cards:grid.children.length,left:grid.getBoundingClientRect().left,right:grid.getBoundingClientRect().right})));
+   assert.deepEqual(grids.map(g=>g.cards),[2,2,3,4]);
+   assert.deepEqual(grids.map(g=>g.columns),width===1440?[2,2,3,4]:width===768?[2,2,2,2]:[1,1,1,1]);
+   for(const grid of grids.slice(0,2))assert.ok(Math.abs(grid.left-(width-grid.right))<2,'paired grids centered');
    assert.deepEqual(errors,[]);
-   await section.screenshot({path:`_seo/test-results/team-${width}.png`});
+   // Capture beyond the viewport without scrolling the existing fixed navigation into the team image.
+   await page.evaluate(()=>window.scrollTo(0,0));
+   await page.waitForTimeout(250);
+   const clip=await section.boundingBox();
+   await page.screenshot({path:`_seo/test-results/team-${width}.png`,fullPage:true,clip});
    await page.reload({waitUntil:'networkidle'});
    await page.getByRole('heading',{name:'Bedřich Said',exact:true}).waitFor();
+   const refreshed=new JSDOM(await page.content());checkTeam(refreshed.window.document);refreshed.window.close();
    await page.close();console.log(`PASS: approved roster, React rendering, refresh and layout at ${width}px`);
   }
  }finally{if(browser)await browser.close();await new Promise(r=>server.close(r));}

@@ -20,9 +20,12 @@ module.exports = function updateTeam(bundle) {
   const groupStart = bundle.indexOf('(0,I.jsxs)(`div`,{className:`mt-12`,children:[', bundle.indexOf('function TF()'));
   const groupEnd = bundle.indexOf(']})]})}),(0,I.jsx)(`section`', groupStart);
   if (groupStart < 0 || groupEnd < 0) throw Error('Team category source boundary missing');
-  const categoryBlocks = groups.map((group, index) =>
-    `(0,I.jsxs)('div',{className:'${index === 0 ? 'mt-12' : 'mt-8'}',children:[(0,I.jsx)('h3',{className:'label-mono mb-4 text-primary/60',children:${JSON.stringify(group.category)}}),(0,I.jsx)('div',{className:'grid gap-5 sm:grid-cols-2 lg:grid-cols-3',style:{gridAutoRows:'1fr'},children:bF.filter(e=>e.category===${JSON.stringify(group.category)}).map(e=>(0,I.jsx)(wF,{member:e},e.slug))})]})`
-  ).join(',');
+  const categoryBlocks = groups.map((group, index) => {
+    const paired = index < 2;
+    const columns = paired ? '' : index === 2 ? ' lg:grid-cols-3' : ' lg:grid-cols-4';
+    const wrapper = `mt-12${paired ? ' mx-auto max-w-4xl' : ''}${index === 0 ? ' haeman-team-leadership' : ''}`;
+    return `(0,I.jsxs)('div',{className:${JSON.stringify(wrapper)},children:[(0,I.jsx)('h3',{className:'label-mono mb-4 text-primary/60${paired ? ' text-center' : ''}',children:${JSON.stringify(group.category)}}),(0,I.jsx)('div',{className:'grid gap-5 sm:grid-cols-2${columns}',style:{gridAutoRows:'1fr'},children:bF.filter(e=>e.category===${JSON.stringify(group.category)}).map(e=>(0,I.jsx)(wF,{member:e,large:${index === 0}},e.slug))})]})`;
+  }).join(',');
   // Replace both old category blocks, preserving the enclosing section and later content.
   bundle = bundle.slice(0, groupStart) + categoryBlocks + bundle.slice(groupEnd + ']})'.length);
   // Descriptions use the existing body typography; each card retains initials and hover styling.

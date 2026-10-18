@@ -12,6 +12,7 @@ function checkTeam(doc){
  assert.equal(section.querySelector('h2').textContent,heading);
  assert.ok(section.textContent.includes(introduction));
  assert.deepEqual([...section.querySelectorAll('h3.label-mono')].map(el=>el.textContent),groups.map(g=>g.category));
+ assert.deepEqual(groups.map(g=>[g.category,g.members.length]),[['Leadership',2],['Management & Coordination',2],['Engineering Leadership',3],['Engineering Team',4]]);
  const cards=[...section.querySelectorAll('.group')];
  assert.equal(cards.length,11);
  const expected=groups.flatMap(g=>g.members);

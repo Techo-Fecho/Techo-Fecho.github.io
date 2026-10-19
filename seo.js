@@ -3,7 +3,7 @@ const pages={"/":{"title":"Haeman Tech | Kernel & Embedded Engineering","descrip
 const origin='https://haemantech.com';
 const normalize=p=>p.replace(/\/index\.html$/,'/').replace(/\/+$/,'')||'/';
 const url=p=>origin+(p==='/'?'/':p+'/');
-const organization={'@type':'Organization','@id':origin+'/#organization',name:'Haeman Tech',url:origin+'/',logo:origin+'/haeman-logo.png?v=brand-920713ca5ad0',email:'official@haemantech.com'};
+const organization={'@type':'Organization','@id':origin+'/#organization',name:'Haeman Tech',url:origin+'/',logo:origin+'/haeman-logo.png?v=brand-920713ca5ad0',email:'official@haemantech.com',founder:{'@type':'Person',name:'Muneeb Irfan'},employee:{'@type':'Person',name:'Bedřich Said',jobTitle:'Chief Executive Officer (CEO)'}};
 function apply(path){
  const key=normalize(path),page=pages[key];
  document.title=page?.title||'404 | Haeman Tech';

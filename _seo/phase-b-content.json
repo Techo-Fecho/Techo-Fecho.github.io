@@ -111,7 +111,7 @@
   "A02": {
     "Eyebrow": "Engineering Focus",
     "H2": "Software Engineering Close to the Hardware",
-    "Paragraph 1": "Based in Pakistan, Haeman Tech works on software that connects operating systems, devices, and the components around them. The focus is on kernel development, embedded software, and C/C++ systems programming.",
+    "Paragraph 1": "Haeman Tech was founded by Muneeb Irfan and is led by Chief Executive Officer Bedřich Said. Based in Pakistan, Haeman Tech works on software that connects operating systems, devices, and the components around them. The focus is on kernel development, embedded software, and C/C++ systems programming.",
     "Paragraph 2": "Linux kernel development addresses code and interfaces within the kernel. Embedded Linux development addresses the wider device platform, including board support, system images, and user-space integration. These scopes can overlap on a device, but the work and acceptance criteria need to be defined explicitly.",
     "Paragraph 3": "An engagement starts with the target platform, available hardware, existing software, and expected behavior. These inputs help define the scope, integration responsibilities, development milestones, and testing required for the work.",
     "Contact link": "Discuss Your Project → /contact/"

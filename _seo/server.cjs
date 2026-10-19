@@ -1,5 +1,5 @@
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css','.png':'image/png','.xml':'application/xml','.txt':'text/plain'};
+const types={'.ico':'image/x-icon','.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css','.png':'image/png','.xml':'application/xml','.txt':'text/plain'};
 module.exports=async function serve({source=false,original=false}={}){
  const root=process.cwd();
  const shell=fs.readFileSync('_seo/shell.html','utf8').replace('/app-v2.js?v=20261016-email','/app-v2.js?v=20261016-seo').replace('</head>',original?'</head>':'<script src="/seo.js?v=20261016-seo"></script></head>');

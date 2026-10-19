@@ -1,0 +1,18 @@
+{
+  "version": "brand-920713ca5ad0",
+  "width": 1015,
+  "height": 832,
+  "sources": {
+    "full-logo-original.png": "3082be8d4d2173c2d3c1c568889ee8e6865ca3d7572d9b58442cc3f14142a023",
+    "symbol-original.png": "fe143f2683cac0c892b5ce57cf69811968a64f0f27e1363b3de0187c21912a70"
+  },
+  "assets": {
+    "haeman-logo.png": "dbd11b08a3a4986b7c4486a04a42b2b45662f4228a6e5d5027a9e0f62b437caa",
+    "haeman-logo-dark.png": "630d6bd823cd047216372aad7d4eb1030bcbded73f7babc3b2857d8a5a6bdc56",
+    "haeman-symbol.png": "f8d38e50acf50e43b65a508fff6b3dc5b69d89a74571787293a22efea44a0ea1",
+    "favicon-16x16.png": "a79e428108713a0869a4aee69e737c9c16709038c1c179549234e4f3af12db2a",
+    "favicon-32x32.png": "8ed870bc5fb72602b12755ca8949526f77cde8ffd126bc03c3bd55032b145633",
+    "favicon-48x48.png": "0ee672674e95df4c911d78f6c3dfef15c4061ca0e5ce1f029734b79a12293432",
+    "favicon.ico": "61366c481be60b044da97ecf462b374b307604c4d3ea4eeba242ecc9bb7b056d"
+  }
+}

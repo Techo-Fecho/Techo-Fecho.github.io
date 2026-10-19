@@ -19,7 +19,7 @@ function checkDocument(d,route){
  const icons=[...d.querySelectorAll('link[rel=icon]')];assert.equal(icons.length,4);
  for(const size of [16,32,48])assert.ok(icons.some(n=>n.getAttribute('sizes')===size+'x'+size&&n.getAttribute('href')==='/favicon-'+size+'x'+size+'.png?v='+assets.version));
  assert.ok(icons.some(n=>n.getAttribute('href')==='/favicon.ico?v='+assets.version));
- assert.ok(d.querySelector('link[href="/branding.css?v='+assets.version+'"]'));
+ assert.ok(d.querySelector('link[href="/branding.css?v='+assets.stylesheetVersion+'"]'));
  for(const img of d.querySelectorAll('a[aria-label="Haeman Tech home"] img')){assert.ok(img.classList.contains('brand-logo'));assert.equal(img.alt,'Haeman Tech');assert.ok(['/haeman-logo.png?v=','/haeman-logo-dark.png?v='].some(prefix=>img.getAttribute('src')===prefix+assets.version));assert.equal(img.getAttribute('width'),String(assets.width));assert.equal(img.getAttribute('height'),String(assets.height));}
 }
 function checkBranding(){

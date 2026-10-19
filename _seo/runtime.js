@@ -16,10 +16,16 @@ function apply(path){
  set('name','robots',!page||page.noindex?'noindex, follow':'index, follow');
  set('property','og:title',document.title);set('property','og:description',page?.description||'The requested route could not be resolved.');
  set('property','og:type','website');
+ // Homepage social metadata must not persist after client-side navigation.
+ for(const [name,value] of [['twitter:title',document.title],['twitter:description',page?.description]]){
+  if(page&&key==='/')set('name',name,value);
+  else document.head.querySelector('meta[name="'+name+'"]')?.remove();
+ }
  let canonical=document.head.querySelector('link[rel="canonical"]');
  if(page){if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.append(canonical)}canonical.href=url(key);set('property','og:url',url(key));}
  else{canonical?.remove();document.head.querySelector('meta[property="og:url"]')?.remove()}
  const graph=[organization];
+ if(page&&key==='/')graph.push({'@type':'WebSite','@id':origin+'/#website',name:'Haeman Tech',alternateName:'HaemanTech',url:origin+'/'});
  if(page&&key!=='/'){
   const parts=key.split('/').filter(Boolean);const crumbs=[{name:'Home',item:url('/')}];
   for(let i=0;i<parts.length;i++){let route='/'+parts.slice(0,i+1).join('/');if(pages[route])crumbs.push({name:pages[route].label,item:url(route)})}

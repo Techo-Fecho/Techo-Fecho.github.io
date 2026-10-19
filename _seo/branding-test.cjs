@@ -12,10 +12,10 @@ function normalizeLogo(node){
 function checkDocument(d,route){
  const before=baseline.routes[route];assert.ok(before,route);
  assert.equal(hash((d.querySelector('main')||d.getElementById('root')).textContent.replace(/\s+/g,' ').trim()),before.text,route+' original content');
- assert.deepEqual([...d.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')),before.links,route+' all destinations retained');
- assert.equal(d.title,before.title);assert.deepEqual([...d.querySelectorAll('meta')].map(n=>n.outerHTML),before.meta);
+ assert.equal(hash(JSON.stringify([...d.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')))),before.linksHash,route+' all destinations retained');
+ assert.equal(d.title,before.title);assert.equal(hash(JSON.stringify([...d.querySelectorAll('meta')].map(n=>n.outerHTML))),before.metaHash);
  assert.equal(d.querySelector('link[rel=canonical]')?.href??null,before.canonical);
- const schema=JSON.parse(d.getElementById('seo-structured-data').textContent);assert.equal(schema['@graph'][0].logo,'https://haemantech.com/haeman-logo.png?v='+assets.version);delete schema['@graph'][0].logo;assert.deepEqual(schema,before.schema,'only Organization logo reference changes');
+ const schema=JSON.parse(d.getElementById('seo-structured-data').textContent);assert.equal(schema['@graph'][0].logo,'https://haemantech.com/haeman-logo.png?v='+assets.version);delete schema['@graph'][0].logo;assert.equal(hash(JSON.stringify(schema)),before.schemaHash,'only Organization logo reference changes');
  const icons=[...d.querySelectorAll('link[rel=icon]')];assert.equal(icons.length,4);
  for(const size of [16,32,48])assert.ok(icons.some(n=>n.getAttribute('sizes')===size+'x'+size&&n.getAttribute('href')==='/favicon-'+size+'x'+size+'.png?v='+assets.version));
  assert.ok(icons.some(n=>n.getAttribute('href')==='/favicon.ico?v='+assets.version));

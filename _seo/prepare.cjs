@@ -37,6 +37,7 @@ bundle=bundle.replace('(0,I.jsx)(qo,{path:`/careers`,element:(0,I.jsx)(PF,{})})'
 bundle=bundle.replace('{label:`FAQs`,path:`/about`}','{label:`FAQs`,path:`/contact`}');
 bundle=require('./team.cjs')(bundle);
 bundle=require('./phase-b.cjs')(bundle);
+bundle=require('./branding.cjs')(bundle);
 fs.writeFileSync('app-v2.js',bundle);
 const runtime=fs.readFileSync('_seo/runtime.js','utf8').replace('/* ROUTES */',JSON.stringify(pages));
 fs.writeFileSync('seo.js',runtime);

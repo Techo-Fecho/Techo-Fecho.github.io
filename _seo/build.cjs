@@ -9,7 +9,8 @@ const editorialVersion='phase-b-'+require('node:crypto').createHash('sha256').up
   doc.querySelectorAll('script[src]').forEach(el=>el.remove());
   // A static snapshot is visible before React mounts. Runtime animation code is unchanged.
   doc.querySelectorAll('#root [style]').forEach(el=>{if(el.style.opacity==='0')el.style.opacity='1'});
-  const version=route==='/'||route==='/about'?editorialVersion:'20261016-seo';
+  // Shared branding changes must refresh the runtime on every route.
+  const version=editorialVersion;
   const seo=doc.createElement('script');seo.src='/seo.js?v='+version;doc.head.append(seo);
   const app=doc.createElement('script');app.type='module';app.src='/app-v2.js?v='+version;doc.body.append(app);
   const dest=route==='/__seo_missing_page__'?'404.html':route==='/'?'index.html':route.slice(1)+'/index.html';

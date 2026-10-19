@@ -1,0 +1,13 @@
+/* Brand artwork only: retain the existing navigation and website theme. */
+.brand-logo {
+  display: block;
+  height: 64px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media (min-width: 1024px) {
+  .brand-logo { height: 72px; }
+}
+.brand-logo.brand-logo-footer { height: 88px; }

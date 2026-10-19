@@ -8,6 +8,7 @@ const normalize=p=>p.replace(/\/+$/,'')||'/';
 const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
 (async()=>{
  checkProtectedFiles();
+ require('./branding-test.cjs').checkBranding();
  const sitemap=new JSDOM(fs.readFileSync('sitemap.xml','utf8'),{contentType:'application/xml'}).window.document;
  const urls=[...sitemap.querySelectorAll('loc')].map(x=>x.textContent);
  assert.equal(urls.length,Object.values(routes).filter(p=>!p.noindex).length);

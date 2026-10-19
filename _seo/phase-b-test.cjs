@@ -2,7 +2,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require(
 const {JSDOM}=require('jsdom');const content=require('./phase-b-content.json');const baseline=require('./phase-b-baseline.json');
 const {checkTeam,teamSection}=require('./team-test.cjs');
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
-const clean=node=>{const copy=node.cloneNode(true);copy.querySelectorAll('[style]').forEach(e=>e.removeAttribute('style'));copy.removeAttribute('style');return copy.outerHTML};
+const clean=node=>{const copy=node.cloneNode(true);copy.querySelectorAll('[style]').forEach(e=>e.removeAttribute('style'));copy.removeAttribute('style');require('./branding-test.cjs').normalizeLogo(copy);return copy.outerHTML};
 const text=node=>node.textContent.replace(/\s+/g,' ').trim();
 const label=value=>value.split(' → ')[0];
 function checkPhaseB(doc,path){

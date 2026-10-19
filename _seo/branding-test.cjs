@@ -11,7 +11,9 @@ function normalizeLogo(node){
 }
 function checkDocument(d,route){
  const before=baseline.routes[route];assert.ok(before,route);
- assert.equal(hash((d.querySelector('main')||d.getElementById('root')).textContent.replace(/\s+/g,' ').trim()),before.text,route+' original content');
+ let originalText=(d.querySelector('main')||d.getElementById('root')).textContent;
+ if(route==='/about'){require('./founder-test.cjs').checkAbout(d);originalText=originalText.replace(require('./founder-test.cjs').sentence+' ','')}
+ assert.equal(hash(originalText.replace(/\s+/g,' ').trim()),before.text,route+' original content apart from approved founder sentence');
  assert.equal(hash(JSON.stringify([...d.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')))),before.linksHash,route+' all destinations retained');
  if(route==='/'){
   require('./search-branding-test.cjs').checkHomepage(d);
@@ -24,7 +26,7 @@ function checkDocument(d,route){
   assert.equal(hash(JSON.stringify(restored)),before.metaHash,'only approved homepage metadata changes');
  }else{assert.equal(d.title,before.title);assert.equal(hash(JSON.stringify([...d.querySelectorAll('meta')].map(n=>n.outerHTML))),before.metaHash);}
  assert.equal(d.querySelector('link[rel=canonical]')?.href??null,before.canonical);
- const schema=JSON.parse(d.getElementById('seo-structured-data').textContent);assert.equal(schema['@graph'][0].logo,'https://haemantech.com/haeman-logo.png?v='+assets.version);delete schema['@graph'][0].logo;if(route==='/')schema['@graph']=schema['@graph'].filter(n=>n['@type']!=='WebSite');assert.equal(hash(JSON.stringify(schema)),before.schemaHash,'only Organization logo reference changes');
+ const schema=JSON.parse(d.getElementById('seo-structured-data').textContent);assert.equal(schema['@graph'][0].logo,'https://haemantech.com/haeman-logo.png?v='+assets.version);require('./founder-test.cjs').checkOrganization(d);delete schema['@graph'][0].founder;delete schema['@graph'][0].employee;delete schema['@graph'][0].logo;if(route==='/')schema['@graph']=schema['@graph'].filter(n=>n['@type']!=='WebSite');assert.equal(hash(JSON.stringify(schema)),before.schemaHash,'existing Organization preserved apart from approved logo and founder/CEO relationships');
  const icons=[...d.querySelectorAll('link[rel=icon]')];assert.equal(icons.length,4);
  for(const size of [16,32,48])assert.ok(icons.some(n=>n.getAttribute('sizes')===size+'x'+size&&n.getAttribute('href')==='/favicon-'+size+'x'+size+'.png?v='+assets.version));
  assert.ok(icons.some(n=>n.getAttribute('href')==='/favicon.ico?v='+assets.version));
@@ -37,7 +39,7 @@ function checkBranding(){
  for(const size of [16,32,48]){const png=fs.readFileSync('favicon-'+size+'x'+size+'.png');assert.equal(png.readUInt32BE(16),size);assert.equal(png.readUInt32BE(20),size);}
  const ico=fs.readFileSync('favicon.ico');assert.equal(ico.readUInt16LE(2),1);assert.equal(ico.readUInt16LE(4),3);assert.deepEqual([0,1,2].map(i=>ico[6+16*i]).sort((a,b)=>a-b),[16,32,48]);
  for(const route of Object.keys(baseline.routes)){const file=route==='/__404'?'404.html':route==='/'?'index.html':route.slice(1)+'/index.html';const dom=new JSDOM(fs.readFileSync(file,'utf8'));checkDocument(dom.window.document,route);dom.window.close();}
- console.log('PASS branding: exact source/asset hashes, PNG/ICO sizes, 77 routes + 404; content and links preserved; only approved homepage SEO and Organization logo exceptions.');
+ console.log('PASS branding: exact source/asset hashes, PNG/ICO sizes, 77 routes + 404; content and links preserved; only approved homepage SEO, founder sentence and Organization relationship exceptions.');
 }
 module.exports={normalizeLogo,checkBranding,checkDocument};
 if(require.main===module)checkBranding();

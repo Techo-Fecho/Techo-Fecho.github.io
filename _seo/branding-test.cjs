@@ -14,7 +14,8 @@ function checkDocument(d,route){
  const before=baseline.routes[route];assert.ok(before,route);
  let originalText=(d.querySelector('main')||d.getElementById('root')).textContent;
  if(route==='/about'){require('./founder-test.cjs').checkAbout(d);originalText=originalText.replace(require('./founder-test.cjs').sentence+' ','')}
- assert.equal(hash(originalText.replace(/\s+/g,' ').trim()),before.text,route+' original content apart from approved founder sentence');
+ if(route==='/projects')require('./project-gallery-test.cjs').checkProjects(d);
+ else assert.equal(hash(originalText.replace(/\s+/g,' ').trim()),before.text,route+' original content apart from approved founder sentence');
  assert.equal(hash(JSON.stringify([...d.querySelectorAll('a[href]:not([href="/products/"])')].map(a=>a.getAttribute('href')))),before.linksHash,route+' all destinations retained');
  if(route==='/'){
   require('./search-branding-test.cjs').checkHomepage(d);

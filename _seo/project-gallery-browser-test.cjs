@@ -1,0 +1,40 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {chromium}=require('playwright'),serve=require('./server.cjs');
+(async()=>{const {server,url}=await serve(),browser=await chromium.launch({channel:'chrome',headless:true});
+try{fs.mkdirSync('_seo/test-results',{recursive:true});
+for(const width of [1440,1024,768,390]){
+ const page=await browser.newPage({viewport:{width,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ assert.equal((await page.goto(url+'/projects/',{waitUntil:'networkidle'})).status(),200);
+ await page.locator('.projects-hero-image').evaluate(i=>i.decode());
+ assert.ok(await page.locator('.projects-eyebrow').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('header').getBoundingClientRect().bottom+10),'hero clears fixed navigation '+width);
+ assert.equal(await page.locator('.project-case-card').count(),21);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'overflow '+width);
+ await page.screenshot({path:`_seo/test-results/gallery-initial-${width}.png`,fullPage:true});
+ console.log('Media codec support',await page.locator('video').first().evaluate(v=>({h264:v.canPlayType('video/mp4; codecs="avc1.64001F"'),aac:v.canPlayType('audio/mp4; codecs="mp4a.40.2"')})));
+ await page.getByRole('button',{name:'Next project video',exact:true}).click();await page.waitForTimeout(700);
+ assert.equal(await page.getByRole('button',{name:'Next project video',exact:true}).isDisabled(),true);
+ assert.ok(await page.locator('.gallery-slide').nth(1).evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1;}),'second card fully visible');
+ await page.getByRole('button',{name:'Play DSP Development',exact:true}).click();
+ try{await page.waitForFunction(()=>{const v=document.querySelectorAll('video')[1];return v.readyState>=2&&v.currentTime>0});}catch(e){console.log(await page.locator('video').nth(1).evaluate(v=>({error:v.error?.message,paused:v.paused,readyState:v.readyState,currentTime:v.currentTime,src:v.currentSrc,controls:v.controls})));console.log(await page.locator('.gallery-error').allTextContents());throw e;}
+ assert.equal(await page.locator('video').nth(1).evaluate(v=>v.controls),true);
+ await page.getByRole('button',{name:'Close video playback'}).click();
+ await page.getByRole('button',{name:'Previous project video',exact:true}).click();await page.waitForTimeout(700);
+ await page.getByRole('button',{name:'Play Hardware Bench Testing',exact:true}).click();
+ await page.waitForFunction(()=>{const v=document.querySelector('video');return v.readyState>=2&&v.currentTime>0});
+ await page.getByRole('button',{name:'Close video playback'}).click();
+ await page.locator('.projects-filters').getByRole('button',{name:'Embedded',exact:true}).click();await page.waitForTimeout(400);
+ assert.ok(await page.locator('.project-case-card').count()<21);
+ await page.locator('.projects-filters').getByRole('button',{name:'All',exact:true}).click();await page.waitForTimeout(400);
+ assert.equal(await page.locator('.project-case-card').count(),21);
+ await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';scrollTo(0,0)});await page.waitForTimeout(400);
+ await page.screenshot({path:`_seo/test-results/gallery-${width}.png`,fullPage:true});
+ await page.getByRole('button',{name:/theme/i}).first().click();await page.waitForTimeout(300);
+ await page.screenshot({path:`_seo/test-results/gallery-light-${width}.png`,fullPage:true});
+ assert.equal((await page.reload({waitUntil:'networkidle'})).status(),200);
+ await page.locator('.project-case-card a').first().click();await page.waitForURL('**/projects/virtual-audio-driver');
+ assert.ok(await page.getByRole('heading',{level:1}).innerText());assert.deepEqual(errors,[]);
+ await page.close();
+}
+const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto(url+'/projects/');await reduced.getByRole('button',{name:'Next project video',exact:true}).click();assert.ok(await reduced.getByRole('button',{name:'Previous project video',exact:true}).isEnabled());assert.notEqual(await reduced.locator('.project-art g[transform]').first().evaluate(e=>getComputedStyle(e).transform),'none','reduced motion preserves SVG geometry');await reduced.close();
+console.log('PASS: Projects gallery 4 widths, both video playback, controls, slider, filters, themes, refresh, links, reduced motion.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exit(1)});

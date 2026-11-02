@@ -6,6 +6,7 @@ for(const width of [1440,1024,768,390]){
  const page=await browser.newPage({viewport:{width,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
  assert.equal((await page.goto(url+'/projects/',{waitUntil:'networkidle'})).status(),200);
  await page.locator('.projects-hero-image').evaluate(i=>i.decode());
+ assert.ok(await page.locator('.projects-eyebrow').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('header').getBoundingClientRect().bottom+10),'hero clears fixed navigation '+width);
  assert.equal(await page.locator('.project-case-card').count(),21);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'overflow '+width);
  await page.screenshot({path:`_seo/test-results/gallery-initial-${width}.png`,fullPage:true});

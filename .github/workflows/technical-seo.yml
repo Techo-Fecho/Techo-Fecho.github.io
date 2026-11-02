@@ -28,6 +28,7 @@ jobs:
       - run: npm test
       - run: node _seo/products-test.cjs
       - run: npx playwright install --with-deps chromium
+      - run: node _seo/project-gallery-browser-test.cjs
       - run: node _seo/products-browser-test.cjs
       - run: node _seo/founder-browser-test.cjs
       - run: node _seo/search-branding-browser-test.cjs

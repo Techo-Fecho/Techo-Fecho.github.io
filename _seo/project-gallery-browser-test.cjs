@@ -1,0 +1,37 @@
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const {chromium}=require('playwright'),serve=require('./server.cjs');
+(async()=>{const {server,url}=await serve(),browser=await chromium.launch({headless:true});
+try{fs.mkdirSync('_seo/test-results',{recursive:true});
+for(const width of [1440,1024,768,390]){
+ const page=await browser.newPage({viewport:{width,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+ assert.equal((await page.goto(url+'/projects/',{waitUntil:'networkidle'})).status(),200);
+ await page.locator('.projects-hero-image').evaluate(i=>i.decode());
+ assert.equal(await page.locator('.project-case-card').count(),21);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'overflow '+width);
+ await page.getByRole('button',{name:'Next project video',exact:true}).click();await page.waitForTimeout(700);
+ assert.equal(await page.getByRole('button',{name:'Next project video',exact:true}).isDisabled(),true);
+ assert.ok(await page.locator('.gallery-slide').nth(1).evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1;}),'second card fully visible');
+ await page.getByRole('button',{name:'Play DSP Development',exact:true}).click();
+ await page.waitForFunction(()=>{const v=document.querySelectorAll('video')[1];return v.readyState>=2&&v.currentTime>0});
+ assert.equal(await page.locator('video').nth(1).evaluate(v=>v.controls),true);
+ await page.getByRole('button',{name:'Close video playback'}).click();
+ await page.getByRole('button',{name:'Previous project video',exact:true}).click();await page.waitForTimeout(700);
+ await page.getByRole('button',{name:'Play Hardware Bench Testing',exact:true}).click();
+ await page.waitForFunction(()=>{const v=document.querySelector('video');return v.readyState>=2&&v.currentTime>0});
+ await page.getByRole('button',{name:'Close video playback'}).click();
+ await page.locator('.projects-filters').getByRole('button',{name:'Embedded',exact:true}).click();await page.waitForTimeout(400);
+ assert.ok(await page.locator('.project-case-card').count()<21);
+ await page.locator('.projects-filters').getByRole('button',{name:'All',exact:true}).click();await page.waitForTimeout(400);
+ assert.equal(await page.locator('.project-case-card').count(),21);
+ await page.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';scrollTo(0,0)});await page.waitForTimeout(400);
+ await page.screenshot({path:`_seo/test-results/gallery-${width}.png`,fullPage:true});
+ await page.getByRole('button',{name:/theme/i}).first().click();await page.waitForTimeout(300);
+ await page.screenshot({path:`_seo/test-results/gallery-light-${width}.png`,fullPage:true});
+ assert.equal((await page.reload({waitUntil:'networkidle'})).status(),200);
+ await page.locator('.project-case-card a').first().click();await page.waitForURL('**/projects/virtual-audio-driver');
+ assert.ok(await page.getByRole('heading',{level:1}).innerText());assert.deepEqual(errors,[]);
+ await page.close();
+}
+const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto(url+'/projects/');await reduced.getByRole('button',{name:'Next project video',exact:true}).click();assert.ok(await reduced.getByRole('button',{name:'Previous project video',exact:true}).isEnabled());await reduced.close();
+console.log('PASS: Projects gallery 4 widths, both video playback, controls, slider, filters, themes, refresh, links, reduced motion.');
+}finally{await browser.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exit(1)});

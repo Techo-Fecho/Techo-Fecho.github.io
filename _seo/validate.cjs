@@ -8,6 +8,7 @@ const normalize=p=>p.replace(/\/+$/,'')||'/';
 const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
 (async()=>{
  checkProtectedFiles();
+ require('./project-gallery-test.cjs').checkProjects();
  require('./branding-test.cjs').checkBranding();
  const sitemap=new JSDOM(fs.readFileSync('sitemap.xml','utf8'),{contentType:'application/xml'}).window.document;
  const urls=[...sitemap.querySelectorAll('loc')].map(x=>x.textContent);
@@ -40,7 +41,7 @@ const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
  assert.equal(errorDoc.querySelector('meta[name="robots"]').content,'noindex, follow');
  assert.equal(errorDoc.querySelector('link[rel="canonical"]'),null);
  // Preserve original content on unrelated pages; assert the approved Phase B copy separately.
- for(const route of Object.keys(routes).filter(p=>!p.startsWith('/careers/')&&p!=='/products')){
+ for(const route of Object.keys(routes).filter(p=>!p.startsWith('/careers/')&&p!=='/products'&&p!=='/projects')){
   const {dom}=await render(route,{original:true});
   const after=new JSDOM(fs.readFileSync(file(route),'utf8'));
   if(route==='/'||route==='/about'){
@@ -49,5 +50,5 @@ const text=d=>d.querySelector('main')?.textContent.replace(/\s+/g,' ').trim();
   assert.equal(text(after.window.document),text(dom.window.document),route+' unrelated content drift');
   dom.window.close();after.window.close();
  }
- console.log(JSON.stringify({routes:Object.keys(routes).length,indexable:urls.length,internalLinks:links,originalPageContentComparisons:69,phaseBPages:2,staticMetadata:'passed',assets:'passed',unknownPage:'passed'},null,2));
+ console.log(JSON.stringify({routes:Object.keys(routes).length,indexable:urls.length,internalLinks:links,originalPageContentComparisons:68,phaseBPages:2,staticMetadata:'passed',assets:'passed',unknownPage:'passed'},null,2));
 })().catch(e=>{console.error(e);process.exit(1)});

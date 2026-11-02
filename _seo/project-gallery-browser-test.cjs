@@ -9,19 +9,22 @@ for(const width of [1440,1024,768,390]){
  assert.ok(await page.locator('.projects-eyebrow').evaluate(e=>e.getBoundingClientRect().top>=document.querySelector('header').getBoundingClientRect().bottom+10),'hero clears fixed navigation '+width);
  assert.equal(await page.locator('.project-case-card').count(),21);
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1),false,'overflow '+width);
+ const frame=await page.locator('.gallery-media').first().boundingBox();assert.ok(Math.abs(frame.width/frame.height-1.4)<.02,'reference frame proportion');
+ const controls=await page.locator('.gallery-controls').boundingBox();assert.ok(controls.y>=frame.y+frame.height&&controls.x+controls.width<=frame.x+frame.width+1,'controls below active frame');
+ if(width>=768){const nextPlay=await page.locator('.is-preview .gallery-play-circle').boundingBox();assert.ok(nextPlay.x>=0&&nextPlay.x+nextPlay.width<=width,'next play visible');}
  await page.screenshot({path:`_seo/test-results/gallery-initial-${width}.png`,fullPage:true});
  console.log('Media codec support',await page.locator('video').first().evaluate(v=>({h264:v.canPlayType('video/mp4; codecs="avc1.64001F"'),aac:v.canPlayType('audio/mp4; codecs="mp4a.40.2"')})));
  await page.getByRole('button',{name:'Next project video',exact:true}).click();await page.waitForTimeout(700);
  assert.equal(await page.getByRole('button',{name:'Next project video',exact:true}).isDisabled(),true);
  assert.ok(await page.locator('.gallery-slide').nth(1).evaluate(e=>{const r=e.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1;}),'second card fully visible');
- await page.getByRole('button',{name:'Play DSP Development',exact:true}).click();
+ await page.getByRole('button',{name:'Play ADAU1787 Feedforward ANC Headset – SigmaStudio POC',exact:true}).click();
  try{await page.waitForFunction(()=>{const v=document.querySelectorAll('video')[1];return v.readyState>=2&&v.currentTime>0});}catch(e){console.log(await page.locator('video').nth(1).evaluate(v=>({error:v.error?.message,paused:v.paused,readyState:v.readyState,currentTime:v.currentTime,src:v.currentSrc,controls:v.controls})));console.log(await page.locator('.gallery-error').allTextContents());throw e;}
  assert.equal(await page.locator('video').nth(1).evaluate(v=>v.controls),true);
- await page.getByRole('button',{name:'Close video playback'}).click();
+ await page.getByRole('button',{name:'Close video playback'}).click();assert.ok(await page.locator('.is-active .gallery-poster').isVisible(),'cover restored after playback');
  await page.getByRole('button',{name:'Previous project video',exact:true}).click();await page.waitForTimeout(700);
- await page.getByRole('button',{name:'Play Hardware Bench Testing',exact:true}).click();
+ await page.getByRole('button',{name:'Play Embedded Hardware Bench Testing',exact:true}).click();
  await page.waitForFunction(()=>{const v=document.querySelector('video');return v.readyState>=2&&v.currentTime>0});
- await page.getByRole('button',{name:'Close video playback'}).click();
+ await page.getByRole('button',{name:'Close video playback'}).click();assert.ok(await page.locator('.is-active .gallery-poster').isVisible(),'cover restored after playback');
  await page.locator('.projects-filters').getByRole('button',{name:'Embedded',exact:true}).click();await page.waitForTimeout(400);
  assert.ok(await page.locator('.project-case-card').count()<21);
  await page.locator('.projects-filters').getByRole('button',{name:'All',exact:true}).click();await page.waitForTimeout(400);

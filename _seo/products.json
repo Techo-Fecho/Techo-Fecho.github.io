@@ -1,0 +1,5 @@
+[
+  {"name":"App Lock","description":"Add Windows Hello or PIN verification to selected desktop apps.","image":"/assets/products/app-lock.png","width":1399,"height":787,"store":"https://apps.microsoft.com/detail/9mx4ngkgg4h5?hl=en-US&gl=US"},
+  {"name":"Notification Keeper","description":"Save and search notifications captured on your PC.","image":"/assets/products/notification-keeper.png","width":1399,"height":787,"store":"https://apps.microsoft.com/detail/9p3f66k6642p?hl=en-US&gl=US"},
+  {"name":"Calculator Lock","description":"A calculator with a PIN-protected file vault.","image":"/assets/products/calculator-lock.png","width":456,"height":787,"store":"https://apps.microsoft.com/detail/9pgrx7hxszbr?hl=en-US&gl=US"}
+]

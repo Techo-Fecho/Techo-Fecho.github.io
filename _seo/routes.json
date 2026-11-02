@@ -460,5 +460,11 @@
     "description": "How Haeman Tech handles the use of our services.",
     "label": "Terms of Service",
     "noindex": false
+  },
+  "/products": {
+    "title": "Windows Apps | Haeman Tech Products",
+    "description": "Explore App Lock, Notification Keeper, and Calculator Lock by Haeman Tech. View screenshots and find each Windows app on Microsoft Store.",
+    "label": "Products",
+    "noindex": false
   }
 }

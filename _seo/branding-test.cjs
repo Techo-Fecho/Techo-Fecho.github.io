@@ -4,6 +4,7 @@ const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 // Restore only the deliberately changed logo image for existing chrome hash checks.
 // Every non-brand navigation/footer element remains covered by its original hash.
 function normalizeLogo(node){
+ node.querySelectorAll('a[href="/products/"]').forEach(a=>{if(a.parentElement.tagName==='LI')a.parentElement.remove();else a.remove()});
  const img=node.querySelector('a[aria-label="Haeman Tech home"] img.brand-logo');if(!img)return;
  const attributes=baseline.logoAttributes[node.tagName==='FOOTER'?'footer':'header'];
  for(const attr of [...img.attributes])img.removeAttribute(attr.name);
@@ -14,7 +15,7 @@ function checkDocument(d,route){
  let originalText=(d.querySelector('main')||d.getElementById('root')).textContent;
  if(route==='/about'){require('./founder-test.cjs').checkAbout(d);originalText=originalText.replace(require('./founder-test.cjs').sentence+' ','')}
  assert.equal(hash(originalText.replace(/\s+/g,' ').trim()),before.text,route+' original content apart from approved founder sentence');
- assert.equal(hash(JSON.stringify([...d.querySelectorAll('a[href]')].map(a=>a.getAttribute('href')))),before.linksHash,route+' all destinations retained');
+ assert.equal(hash(JSON.stringify([...d.querySelectorAll('a[href]:not([href="/products/"])')].map(a=>a.getAttribute('href')))),before.linksHash,route+' all destinations retained');
  if(route==='/'){
   require('./search-branding-test.cjs').checkHomepage(d);
   // Retain the exact existing metadata contract except the explicitly approved fields.

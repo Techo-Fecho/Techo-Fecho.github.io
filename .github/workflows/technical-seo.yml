@@ -9,7 +9,7 @@ permissions:
   contents: write
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Restore staged source on the isolated branch
@@ -50,3 +50,4 @@ jobs:
             git commit -m "Generate and validate static SEO pages without content changes"
             git push origin HEAD:technical-seo-phase1
           fi
+

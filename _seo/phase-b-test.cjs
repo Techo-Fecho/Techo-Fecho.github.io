@@ -46,14 +46,14 @@ function checkPhaseB(doc,path){
 }
 function checkProtectedFiles(){
  assert.equal(hash(fs.readFileSync('_seo/team.json')),baseline.teamDataHash,'team data unchanged');
- const routes=require('./routes.json');assert.equal(Object.keys(routes).length,77);
+ const routes=require('./routes.json');assert.equal(Object.keys(routes).length,78);
  for(const [path,before] of Object.entries(baseline.routes)){
   const after=routes[path];assert.ok(after,path+' retained');assert.equal(after.noindex,before.noindex);
   if(!['/','/about'].includes(path))assert.deepEqual(after,before,path+' metadata unchanged');
  }
  assert.equal(fs.readFileSync('robots.txt','utf8'),'User-agent: *\nAllow: /\nDisallow: /_seo/\n\nSitemap: https://haemantech.com/sitemap.xml\n');
  const sitemap=new JSDOM(fs.readFileSync('sitemap.xml','utf8'),{contentType:'application/xml'}).window.document;
- assert.deepEqual([...sitemap.querySelectorAll('loc')].map(e=>e.textContent),Object.entries(baseline.routes).filter(([,r])=>!r.noindex).map(([p])=>'https://haemantech.com'+(p==='/'?'/':p+'/')));
+ assert.deepEqual([...sitemap.querySelectorAll('loc')].map(e=>e.textContent).filter(u=>u!=='https://haemantech.com/products/'),Object.entries(baseline.routes).filter(([,r])=>!r.noindex).map(([p])=>'https://haemantech.com'+(p==='/'?'/':p+'/')));
 }
 module.exports={checkPhaseB,checkProtectedFiles};
 if(require.main===module){checkProtectedFiles();let strings=0;for(const [path,file] of [['/','index.html'],['/about','about/index.html']]){const dom=new JSDOM(fs.readFileSync(file,'utf8'));strings+=checkPhaseB(dom.window.document,path);dom.window.close();}console.log('PASS: Phase B initial HTML, '+strings+' approved copy checks; team, header/footer, other metadata, sitemap and robots preserved.');}

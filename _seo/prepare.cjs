@@ -21,6 +21,7 @@ for(const a of articles)add('/insights/'+a.slug,a.title+' | Haeman Tech Insights
 for(const j of jobs)add('/careers/'+j.slug,j.title+' | Careers | Haeman Tech',j.summary,j.title,true);
 add('/privacy','Privacy Policy | Haeman Tech','How Haeman Tech handles your data.','Privacy Policy');
 add('/terms','Terms of Service | Haeman Tech','How Haeman Tech handles the use of our services.','Terms of Service');
+add('/products','Windows Apps | Haeman Tech Products','Explore App Lock, Notification Keeper, and Calculator Lock by Haeman Tech. View screenshots and find each Windows app on Microsoft Store.','Products');
 const phaseB=require('./phase-b-content.json');
 Object.assign(pages['/'],{title:phaseB.metaHome['SEO title'],description:phaseB.metaHome['Meta description']});
 Object.assign(pages['/about'],{title:phaseB.metaAbout['SEO title'],description:phaseB.metaAbout['Meta description']});
@@ -38,6 +39,7 @@ bundle=bundle.replace('{label:`FAQs`,path:`/about`}','{label:`FAQs`,path:`/conta
 bundle=require('./team.cjs')(bundle);
 bundle=require('./phase-b.cjs')(bundle);
 bundle=require('./branding.cjs')(bundle);
+bundle=require('./products.cjs')(bundle);
 fs.writeFileSync('app-v2.js',bundle);
 const runtime=fs.readFileSync('_seo/runtime.js','utf8').replace('/* ROUTES */',JSON.stringify(pages));
 fs.writeFileSync('seo.js',runtime);

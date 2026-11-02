@@ -61,7 +61,7 @@ function HaemanVideoGallery(){
  const offset=i=>cards.current[i].offsetLeft-cards.current[0].offsetLeft;
  const choose=i=>{i=Math.max(0,Math.min(count-1,i));pauseAll();setPlaying(null);playSession.current=null;setError('');selected.current=i;setActive(i);const r=rail.current;if(r){target.current=Math.abs(r.scrollLeft-offset(i))>3?i:null;r.style.scrollSnapType='x mandatory';r.scrollTo({left:offset(i),behavior:reduced()?'auto':'smooth'});}};
  const play=i=>{if(dragged.current)return;choose(i);playSession.current=i;setPlaying(i);};
- y.useEffect(()=>{if(playing===null)return;const v=videos.current[playing];if(v){v.muted=false;v.play().catch(()=>{if(playSession.current===playing)setError('Playback could not start. Use the video controls to try again.');});v.focus({preventScroll:true});}},[playing]);
+ y.useEffect(()=>{if(playing===null)return;const v=videos.current[playing];if(v){const top=v.getBoundingClientRect().top;if(top<112)window.scrollBy({top:top-112,behavior:'instant'});v.muted=false;v.play().catch(()=>{if(playSession.current===playing)setError('Playback could not start. Use the video controls to try again.');});v.focus({preventScroll:true});}},[playing]);
  y.useEffect(()=>()=>{videos.current.forEach(v=>{if(v)v.pause()})},[]);
  const preview=(i,on)=>{const v=videos.current[i];if(!v||playSession.current!==null||reduced()||!window.matchMedia('(hover: hover)').matches)return;if(on){v.muted=true;setPreviewing(i);v.play().catch(()=>setPreviewing(null));}else{v.pause();setPreviewing(null);}};
  const endDrag=()=>{const p=pointer.current;if(!p)return;pointer.current=null;rail.current.style.scrollSnapType='x mandatory';if(dragged.current){const dx=p.x-p.lastX;choose(Math.abs(dx)>50?selected.current+(dx>0?1:-1):selected.current);}};

@@ -11,7 +11,7 @@ module.exports = function updateTeam(bundle) {
   const end = bundle.indexOf(',xF=', start);
   if (start < 0 || end < 0) throw Error('Team roster source boundary missing');
   const members = groups.flatMap((group, index) => group.members.map((member, i) => ({
-    slug: `team-${index}-${i}`, name: member.name, role: member.role,
+    slug: `team-${index}-${i}`, name: member.name, role: member.role, photo: member.photo || '',
     specialization: member.description, bio: '', linkedin: '', stack: [], category: group.category,
   })));
   bundle = bundle.slice(0, start) + 'var bF=' + JSON.stringify(members) + bundle.slice(end);
@@ -31,6 +31,8 @@ module.exports = function updateTeam(bundle) {
   // Descriptions use the existing body typography; each card retains initials and hover styling.
   replaceOnce('mt-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors group-hover:text-foreground/80', 'mt-2 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground/80');
   replaceOnce('group relative flex flex-col overflow-hidden rounded-2xl border bg-card/40 transition-all duration-300 hover:border-primary/50 hover:bg-card/60', 'group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card/40 transition-all duration-300 hover:border-primary/50 hover:bg-card/60');
+  // Display only supplied portraits; keep the existing avatar dimensions and initials fallback.
+  replaceOnce('(0,I.jsx)(`span`,{className:ri(`font-heading font-bold text-primary`,t?`text-3xl`:`text-2xl`),children:CF(e.name)})', 'e.photo?(0,I.jsx)(`img`,{src:e.photo,alt:e.name+", "+e.role,width:96,height:96,loading:"lazy",decoding:"async",style:{width:"100%",height:"100%",objectFit:"cover",objectPosition:"50% 30%"}}):(0,I.jsx)(`span`,{className:ri(`font-heading font-bold text-primary`,t?`text-3xl`:`text-2xl`),children:CF(e.name)})');
   // Do not show empty social profile placeholders.
   replaceOnce('(0,I.jsx)(`div`,{className:`mt-5 border-t border-border pt-4`', 'e.linkedin&&(0,I.jsx)(`div`,{className:`mt-5 border-t border-border pt-4`');
   return bundle;

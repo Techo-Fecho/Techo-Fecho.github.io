@@ -31,8 +31,10 @@ module.exports = function updateTeam(bundle) {
   // Descriptions use the existing body typography; each card retains initials and hover styling.
   replaceOnce('mt-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-colors group-hover:text-foreground/80', 'mt-2 text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground/80');
   replaceOnce('group relative flex flex-col overflow-hidden rounded-2xl border bg-card/40 transition-all duration-300 hover:border-primary/50 hover:bg-card/60', 'group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card/40 transition-all duration-300 hover:border-primary/50 hover:bg-card/60');
-  // Display only supplied portraits; keep the existing avatar dimensions and initials fallback.
-  replaceOnce('(0,I.jsx)(`span`,{className:ri(`font-heading font-bold text-primary`,t?`text-3xl`:`text-2xl`),children:CF(e.name)})', 'e.photo?(0,I.jsx)(`img`,{src:e.photo,alt:e.name+", "+e.role,width:96,height:96,loading:"lazy",decoding:"async",style:{width:"100%",height:"100%",objectFit:"cover",objectPosition:"50% 30%"}}):(0,I.jsx)(`span`,{className:ri(`font-heading font-bold text-primary`,t?`text-3xl`:`text-2xl`),children:CF(e.name)})');
+  // Supplied portraits fill the card top; initials-only cards retain their existing layout.
+  replaceOnce('className:`mb-4 flex items-center justify-between`,children:', 'className:`mb-4 flex items-center justify-between`,style:e.photo?{position:"absolute",top:16,left:16,zIndex:1}:void 0,children:');
+  replaceOnce('t?`h-24 w-24`:`h-20 w-20`),children:', 't?`h-24 w-24`:`h-20 w-20`),style:e.photo?{width:"calc(100% + "+(t?56:48)+"px)",height:"auto",marginTop:t?-28:-24,marginLeft:t?-28:-24,border:0,borderRadius:0,flexShrink:0}:void 0,children:');
+  replaceOnce('(0,I.jsx)(`span`,{className:ri(`font-heading font-bold text-primary`,t?`text-3xl`:`text-2xl`),children:CF(e.name)})', 'e.photo?(0,I.jsx)(`img`,{src:e.photo,alt:e.name+", "+e.role,width:1086,height:1448,loading:"lazy",decoding:"async",style:{width:"100%",height:"auto",display:"block"}}):(0,I.jsx)(`span`,{className:ri(`font-heading font-bold text-primary`,t?`text-3xl`:`text-2xl`),children:CF(e.name)})');
   // Do not show empty social profile placeholders.
   replaceOnce('(0,I.jsx)(`div`,{className:`mt-5 border-t border-border pt-4`', 'e.linkedin&&(0,I.jsx)(`div`,{className:`mt-5 border-t border-border pt-4`');
   return bundle;

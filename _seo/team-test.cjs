@@ -20,8 +20,9 @@ function checkTeam(doc){
   assert.equal(card.querySelector('h3').textContent,expected[i].name);
   assert.equal(card.querySelector('p').textContent,expected[i].role);
   assert.equal(card.querySelectorAll('p')[1].textContent,expected[i].description);
-  assert.ok(card.textContent.includes(expected[i].name.split(' ').map(n=>n[0]).join('')));
-  assert.equal(card.querySelectorAll('img,a').length,0,'no unverified photos or links');
+  assert.equal(card.querySelectorAll('a').length,0,'no unverified profile links');
+  if(expected[i].photo){const img=card.querySelector('img');assert.ok(img,'supplied portrait');assert.equal(img.getAttribute('src'),expected[i].photo);assert.equal(img.alt,expected[i].name+', '+expected[i].role);assert.ok(fs.existsSync(expected[i].photo.slice(1)));}
+  else{assert.ok(card.textContent.includes(expected[i].name.split(' ').map(n=>n[0]).join('')));assert.equal(card.querySelectorAll('img').length,0,'no unverified photos');}
  });
  for(const old of ['Waqar Iqbal','Bedrich Said','Junior Embedded Developer','Senior C++ Developer'])assert.ok(!section.textContent.includes(old),old+' removed from team');
 }

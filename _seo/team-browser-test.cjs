@@ -21,6 +21,8 @@ const routes=require('./routes.json');
    await page.getByRole('heading',{name:'The People Behind Haeman Tech',exact:true}).waitFor();
    const section=page.locator('section').filter({has:page.getByRole('heading',{name:'The People Behind Haeman Tech',exact:true})});
    await section.scrollIntoViewIfNeeded();
+   await section.locator('img[alt="Muneeb Irfan, Founder"]').scrollIntoViewIfNeeded();
+   await section.locator('img[alt="Muneeb Irfan, Founder"]').evaluate(img=>img.decode());
    await page.waitForTimeout(900);
    const dom=new JSDOM(await page.content());checkTeam(dom.window.document);dom.window.close();
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false,'page overflow');

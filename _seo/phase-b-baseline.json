@@ -1,7 +1,7 @@
 {
   "commit": "e90c4ec761576312b844721dcda5892585574a3f",
-  "teamDataHash": "d0740f2a1ca71c1919db35312d046ca6c0f996492a60f4e0360c49305c93c1d2",
-  "teamSectionHash": "1b665976cc52e5ab51289b08870ecdbc3e2c44bba9d5b641126c7e259a69da60",
+  "teamDataHash": "9ca0a18fda63756e04d171e4933dceea5bc62b6227f2662b03c81ae0349b1b37",
+  "teamSectionHash": "3b9ac244ae9014cdc76ccdcee6531005826d842b3a7304503f96677a79bb4a0d",
   "footerHash": "9db3b7fd6bb789e019dc1e6e62bb91594b187bd610b196582e941088bcaeeed3",
   "routes": {
     "/": {

@@ -37,7 +37,8 @@
       {
         "name": "Waqar Ahmad",
         "role": "Team Lead, Product Manager & Senior Windows Kernel Developer",
-        "description": "Leads engineering coordination and product planning, manages technical milestones, and works on Windows kernel architecture, driver development, and debugging."
+        "description": "Leads engineering coordination and product planning, manages technical milestones, and works on Windows kernel architecture, driver development, and debugging.",
+        "photo": "/assets/team/waqar-ahmad.png"
       },
       {
         "name": "Ahsan Iqbal",

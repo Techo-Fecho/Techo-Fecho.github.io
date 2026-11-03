@@ -43,7 +43,8 @@
       {
         "name": "Ahsan Iqbal",
         "role": "Senior Embedded & Firmware Engineer",
-        "description": "Works on embedded firmware architecture, microcontroller development, hardware integration, and debugging across embedded platforms."
+        "description": "Works on embedded firmware architecture, microcontroller development, hardware integration, and debugging across embedded platforms.",
+        "photo": "/assets/team/ahsan-iqbal.png"
       },
       {
         "name": "Fatima Ahsan",

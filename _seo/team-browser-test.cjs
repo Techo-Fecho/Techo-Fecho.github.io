@@ -28,7 +28,7 @@ const routes=require('./routes.json');
    assert.ok(Math.abs(portrait.width-(portrait.cardWidth-2))<3,'portrait fills card width');
    assert.ok(Math.abs(portrait.top-portrait.cardTop)<3,'portrait starts at card top');
    assert.ok(portrait.nameTop>=portrait.bottom,'name follows portrait');
-   assert.ok(Math.abs(portrait.ratio-portrait.naturalRatio)<0.01,'whole portrait retains original aspect ratio');
+   assert.ok(Math.abs(portrait.ratio-1)<0.01,'portrait height reduced 25 percent from original 3:4 ratio');
    const dom=new JSDOM(await page.content());checkTeam(dom.window.document);dom.window.close();
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false,'page overflow');
    assert.equal(await section.locator('.group').evaluateAll(cards=>cards.some(c=>c.scrollWidth>c.clientWidth+2)),false,'card overflow');

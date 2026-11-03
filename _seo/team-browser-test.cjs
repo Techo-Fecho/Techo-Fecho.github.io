@@ -22,7 +22,7 @@ const routes=require('./routes.json');
    const section=page.locator('section').filter({has:page.getByRole('heading',{name:'The People Behind Haeman Tech',exact:true})});
    await section.scrollIntoViewIfNeeded();
    await section.locator('img[alt="Muneeb Irfan, Founder"]').scrollIntoViewIfNeeded();
-   await section.locator('img[alt="Muneeb Irfan, Founder"]').evaluate(img=>img.decode());
+   for(const img of await section.locator('img').all()){await img.scrollIntoViewIfNeeded();await img.evaluate(el=>el.decode());}
    await page.waitForTimeout(900);
    const portrait=await section.locator('img[alt="Muneeb Irfan, Founder"]').evaluate(img=>{const card=img.closest('.group'),r=img.getBoundingClientRect(),c=card.getBoundingClientRect(),h=card.querySelector('h3').getBoundingClientRect();return {width:r.width,cardWidth:c.width,top:r.top,cardTop:c.top,bottom:r.bottom,nameTop:h.top,ratio:r.width/r.height,naturalRatio:img.naturalWidth/img.naturalHeight}});
    assert.ok(Math.abs(portrait.width-(portrait.cardWidth-2))<3,'portrait fills card width');

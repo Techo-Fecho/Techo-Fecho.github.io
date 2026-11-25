@@ -11,7 +11,7 @@ module.exports = function updateTeam(bundle) {
   const end = bundle.indexOf(',xF=', start);
   if (start < 0 || end < 0) throw Error('Team roster source boundary missing');
   const members = groups.flatMap((group, index) => group.members.map((member, i) => ({
-    slug: `team-${index}-${i}`, name: member.name, role: member.role, photo: member.photo || '',
+    slug: `team-${index}-${i}`, name: member.name, role: member.role, photo: '',
     specialization: member.description, bio: '', linkedin: '', stack: [], category: group.category,
   })));
   bundle = bundle.slice(0, start) + 'var bF=' + JSON.stringify(members) + bundle.slice(end);

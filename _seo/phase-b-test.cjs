@@ -37,7 +37,7 @@ function checkPhaseB(doc,path){
   for(const i of [1,2,3,4,5]){add('A04.'+i,['H3','Description']);expected.push(label(content['A04.'+i]['Related link']));}
   add('A06',['Section heading','Paragraph']);
   assert.equal(main.querySelectorAll('p a').length,0,'About paragraph copy is free of inline links');
-  checkTeam(doc);assert.equal(hash(clean(teamSection(doc))),baseline.teamSectionHash,'approved team markup/content unchanged');
+  checkTeam(doc);assert.equal(teamSection(doc).querySelectorAll('img').length,0,'team portraits removed');
  }
  for(const value of expected)assert.ok(text(main).includes(value),path+' missing approved copy: '+value);
  for(const value of ['What partners say','Enterprise Security Vendor','Pro Audio Hardware','In-Vehicle Systems','Industrial IoT','40,000','WHQL Certified','The path so far.','2021','2022','2023','2024','signed, certified, and stable','We master the machine.'])assert.ok(!text(main).includes(value),path+' old claim: '+value);
